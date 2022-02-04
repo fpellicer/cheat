@@ -1,0 +1,54 @@
+---
+tags: [ processor ]
+---
+# Basic symbols
+# Default     | -c Copied context
+Add         A | +   
+Change      C | !   
+Delete      D | -   
+Line num    # |     
+Separator --- |     
+File 1      < | *** 
+Flie 2      > | --- 
+
+# To view the differences between two files:
+diff -u version1 version2
+
+# To view the differences between two directories:
+diff -ur folder1/ folder2/
+
+# To ignore the white spaces:
+diff -ub version1 version2
+
+# To ignore the blank lines:
+diff -uB version1 version2
+
+# To ignore the differences between uppercase and lowercase:
+diff -ui version1 version2
+
+# To report whether the files differ:
+diff -q version1 version2
+
+# To report whether the files are identical:
+diff -s version1 version2
+
+# To diff the output of two commands or scripts:
+diff <(command1) <(command2)
+
+# To diff the output of (by size) in different directories:
+diff <(du -h *) <(cd "/path/to/compare/"; du -h *)
+
+# Ignore spaces in one line even where the corresponding line has none:
+diff --ignore-all-space version1 version2  (or -w option)
+
+# Show in two columns
+diff -y version1 version2
+
+# Colorize the output
+diff -y --color version1 version2
+
+# Suppress common lines
+diff --suppress-common-lines version1 version2
+
+# Show only common lines in left column
+diff --left-column version1 version2

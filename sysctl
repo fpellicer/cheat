@@ -1,0 +1,10 @@
+---
+tags: [ admin,systemd ]
+---
+# Configura parámetros del kernel en tiempo de ejecución
+
+# Ver valor asignado a vm.swappiness (60 default)
+sysctl --values vm.swappiness
+
+# Modificar el valor asignado a vm.swappiness (0 less swap, 100 more)
+sysctl --write mv.swappiness=40

@@ -1,0 +1,18 @@
+---
+tags: [ packaging ]
+---
+apt-cache <opción> nom_paquete
+
+search   # Busca una lista de paquetes para un patrón de expresión de registro.
+showpkg  # Muestra información general para un paquete.
+show     # Muestra un registro legible para el paquete.
+stats    # Muestra algunas estadísticas básicas.
+unmet    # Muestra dependencia no conseguidas.
+depends  # Muestra información de dependencia en bruto para un paquete.
+rdepends # Muestra información de la dependencia inversa para un paquete.
+
+# know gtk version
+apt-cache show libgtk-3-0 | grep -i version
+
+# Mostrar las dependencias inversas instaladas y de forma recursiva
+apt-cache rdepends --installed --recurse PAQUETE

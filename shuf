@@ -1,0 +1,6 @@
+# Genera numeros de loteria aleatorios (La division de num y filas debe dar un numero entero)
+shuf -i 1 -100 -n 15 | xargs -n 5
+
+-i           Rango de numeros (1-100)
+-n           Cantidad de numeros a mostrar
+-xargs -n 5  Organiza el output en filas de 5 numeros cada una

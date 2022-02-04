@@ -1,0 +1,6 @@
+---
+tags: [ processor ]
+---
+# Muestra las lineas repetidas en un archivo ordenado
+uniq -d
+

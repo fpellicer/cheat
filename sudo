@@ -1,0 +1,9 @@
+---
+tags: [ admin ]
+---
+-e, --edit                  editar archivos en lugar de ejecutar un comando
+-k, --reset-timestamp       invalidar archivo de marca de tiempo
+-l, --list                  enumerar privilegios del usuario o comprobar un comando específico; utilizar dos veces para un
+                            formato más largo
+-U, --other-user=user       en modo de lista, mostrar privilegios del usuario
+-u, --user=user             ejecutar comando (o editar archivo) como el nombre o ID de usuario especificado

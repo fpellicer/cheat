@@ -1,0 +1,26 @@
+---
+tags: [ multimedia ]
+---
+# Convertir todas las pistas del directorio actual
+flac *.wav
+
+# Convertir pistas indicando el directorio de salida
+flac --output-prefix='/ouput/dir/' *.wav
+
+# Convertir las pistas manteniendo la metadata
+flac --keep-foreign-metadata *.wav
+
+# Convertir pista indicanto el nombre del archivo de salida
+flac --ouput-name=my_track.flac track.wav
+
+# Niveles de compresión (default 5)
+--compression-level-{0..8}
+-0, --fast
+-{1..7}
+-8, --best
+
+# Verificar que el archivo flac y el wav són el mismo
+flac --verify track.wav
+
+# Añadir tags al archivo durante la codificación
+flac -T "TITLE=Bohemian Rhapsody" -T "ARTIST=Queen" audio.wav

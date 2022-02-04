@@ -1,0 +1,11 @@
+---
+tags: [ processor ]
+---
+# Líneas que solo están en file1
+comm -23 file1 file2
+
+# Líneas que solo están en file2
+comm -13 file1 file2
+
+# Líneas comunes en file1 y file2
+comm -12 file1 file2

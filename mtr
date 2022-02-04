@@ -1,0 +1,23 @@
+---
+tags: [ networking ]
+---
+# Combina las funcionalidades de traceroute y ping
+
+# Monitorizar saltos entre origen y destino
+mtr ip/host
+
+# Enviar 10 paquetes ping y reportar al finalizar
+mtr -c 10 -r site.es
+
+# Mostrar ips numéricas
+mtr -n site.es
+
+# Mostar ip y nombre de host
+mtr -b site.es
+
+# Usar paquetes TCP SYN o datagramas UDP en lugar de ICMP ECHO
+mtr --tcp site.es
+mtr --udp site.es
+
+# Especificar número máximo de saltos (default 30)
+mtr -m 10 site.es

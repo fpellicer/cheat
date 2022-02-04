@@ -1,0 +1,17 @@
+# Uso básico
+<comando> | pastebinit
+
+# Lista de lugares soportados
+pastebinit -l
+
+# Usar un servicio distinto al predeterminado
+<comando> | pastebinit -b paste.ubuntu.com
+
+# Subir un archivo existente
+pastebinit -i archivo.txt
+
+# Modificar el autor y el tipo de contenido (texto por defecto)
+<comando> | pastebinit -a anonimo -f python
+
+# Añadir un título
+pastebinit -t 'Titulo' -i archivo.txt

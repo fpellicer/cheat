@@ -1,0 +1,21 @@
+---
+tags: [ conversor ]
+---
+# Convierte PostScript a PDF usando ghostcript
+#
+# Usa las mismas opciones que gs
+
+# Convierte PDF a PS y de nuevo a PDF reduciendo su tamaño
+ps2pdf input.pdf output.pdf
+
+# Mejora rendimiento, ya que el modo ebook tiene el mejor tamaño para
+# facilitar la lectura y también es lo suficientemente pequeño. 
+ps2pdf -dPDFSETTINGS=/ebook input.pdf output.pdf
+
+# -dPDFSETTINGS - Opciones
+# /screen    Baja calidad y pequeño tamaño (72 ppp)
+# /ebook     Mejor calidad, pero ocupa algo más (150 ppp)
+# /prepress  Mejor calidad y tamaño (300 ppp)
+# /printer   Calidad de impresora (300 ppp)
+# /default   Selecciona la salida más útil para múltiples propositos
+#            Puede generar grandes PDFs

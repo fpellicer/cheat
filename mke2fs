@@ -1,0 +1,23 @@
+---
+tags: [ filesystem ]
+---
+# Herramienta para crear sistemas de archivo de tipo ext2/ext3/ext4.
+# Opciones por defecto en /etc/mke2fs.conf
+
+-c  Comprueba si existen 'bad blocks' (read-only) antes de crear el filesystem.
+    Con -cc realiza un test mas exaustivo (read-write) pero mas lento.
+-q  Quiet execution. Util para el uso de 'mke2fs' en scripts.
+-O  Permite modificar las opciones de montaje (ver man ext4). Opciones separadas por ','.
+    Para deshabilitar opciones, preceder con el caracter '^'.
+-n  Simula la creacion del filesystem, mostrando el resultado de la simulacion.
+-v  Verbose.
+
+
+# Crear filesystem ext4 y nombre de etiqueta.
+mke2fs -L <nombre_particion> -t ext4 /dev/sdxx
+
+# Crear filesystem ext4 y % de bloques reservados (%5 defecto)
+mke2fs -t ext4 -m 0 /dev/sdxx
+
+# Crear fs ext4, con etiqueta y 0% bloques reservados.
+sudo mke2fs -v -t ext4 -L <etiqueta> -m 0 /dev/sdxx

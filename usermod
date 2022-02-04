@@ -1,0 +1,43 @@
+---
+tags: [ admin ]
+---
+# Los cambios se pueden ver en /etc/passwd
+# Uso: usermod [opciones] USUARIO
+
+# Cambiar el directorio 'home'
+usermod -d /nuevo/<home> <usuario>
+
+# Cambiar los archivos de 'home' a la nueva localizacion
+usermod -d /nuevo/<home> -m <usuario>
+
+# Incluir a un usuario en un grupo secundario
+usermod -a -G <grupo> <usuario>
+
+# Cambiar nombre de usuario (no cambia grupo primario)
+usermod -l <nuevo_nombre_usuario> <usuario>
+
+# Cambiar grupo primario
+usermod -g <nuevo_grupo> <usuario>
+
+# Bloquear una cuenta de usuario (! al inicio de passwrd en /etc/shadow)
+usermod -L <usuario>
+
+# Desbloquear cuenta de usuario
+usermod -U <usuario>
+
+# Cambiar el Shell de usuario
+usermod -s /nueva/shell <usuario>
+
+# Cambiar el User ID (UID) (no entre 0 y 999)
+usermod -u <nuevo_uid> <usuario>
+
+# Cambiar UID y GID
+usermod -u <nuevo_uid> -g <nuevo_gid> <usuario>
+
+# Modificar la cuenta de usuario con multiples opciones
+# Cambiar el 'home', la Shell, UID, y lo agregamos al grupo 'apple'
+usermod -d /var/jhonn -s /bin/ksh -u 1001 -aG apple <usuario>
+
+# Cambiar 'usuario', 'home' y mover sus archivos
+usermod -l <nuevo_usuario> -d /home/<nuevo_dir> -m <usuario>
+

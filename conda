@@ -1,0 +1,22 @@
+---
+tags: [ python ]
+---
+# Ayuda
+conda help
+
+# Info sobre la instalación de Anaconda
+conda info
+
+# Lista de paquetes intalados
+conda list
+
+# Actualizar un paquete
+conda update <paquete>
+
+# Actualizar todos los paqutes
+conda update --all
+
+# Instalar paquetes
+conda install <paquete>
+
+

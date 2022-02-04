@@ -1,0 +1,8 @@
+---
+tags: [ encoder ]
+----
+# Muestra archivos que contienen saltos de línea DOS
+dos2unix -ic archivo.txt
+
+# Convierte solo archivos que tienen saltos de línea DOS
+dos2unix -ic *.txt | xargs dos2unix

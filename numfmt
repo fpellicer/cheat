@@ -1,0 +1,16 @@
+---
+tags: [ processor ]
+---
+si,    (1K=1000)  Acepta sufijos de una letra
+sic,   (1K=1024)  Acepta sufijos de una letra
+sic-i, (1Ki=1024) Acepta sufijos de dos letras
+
+# Convierte bytes a formato para humanos
+numfmt --to=iec --suffix=B --padding=7 1048576
+numfmt --to=iec-i suffix=B --padding=7 21500002304
+
+# Convierte 1K a bytes
+echo 1K | numfmt --from=si
+
+# Convierte la salida de los campos 2 al 4 del comando df 
+df -B1 | numfmt --header --field 2-4 --to=sic

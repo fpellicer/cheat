@@ -1,0 +1,5 @@
+# Deprecated! Use instead
+pkexec firefox
+
+# Open files
+gedit admin:///archivo.txt

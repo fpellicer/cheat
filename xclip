@@ -1,0 +1,16 @@
+# Put your uptime in the X selection. Then middle click in an X application to paste.
+uptime | xclip
+
+# Exit after /etc/motd (message of the day) has been pasted 10  times.
+# Show  how  many  selection  requests (pastes) have been processed.
+xclip -loops 10 -verbose /etc/motd
+
+# Put the contents of the selection into a file.
+xclip -o > helloworld.c
+
+# Middle click in an X application supporting HTML to paste the contents of the given file as HTML.
+xclip -t text/html index.html
+
+# Search in Google
+firefox https://www.google.com/search?q=$(xclip -o)
+

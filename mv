@@ -1,0 +1,2 @@
+# Renombra sustituyendo la primera mayscula por minuscula
+mv {F,f}oo.txt

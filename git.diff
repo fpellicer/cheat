@@ -1,0 +1,14 @@
+---
+tags: [ vcs ]
+---
+# Diferencias entre entorno de trabajo y el index
+git diff
+
+# Diferencias entre index y el último commit
+git diff --staged
+
+# Diferencias entre ramas
+git diff master..develop
+
+# Listar archivos que son diferentes
+git --name-status master..develop

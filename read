@@ -1,0 +1,17 @@
+---
+tags: [ bash ]
+---
+-s (silent)  # silencia la salida, util para leer passwords
+-p (prompt)  # texto a mostrar en pantalla
+-n (number)  # n de caracteres que acepta
+-d delim     # `delim` como delimitador de línea (en lugar de newline)
+
+# Color en la salida de -p
+# read no procesa caracteres de escape en el argumento -p, por lo que se 
+# necesita especificarlos literalmente. El entrecomillado ANSI de Bash 
+# resulta util aqui.
+read -p $'\e[31mFoobar\e[0m: ' foo
+
+# Tambien se puede indicar un caracter de escape literal con 'Ctrl+V+Esc',
+# se  mostrara ^[ en el terminal.
+read -p '^[[31mFoobar^[[0m: ' foo

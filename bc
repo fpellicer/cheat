@@ -1,0 +1,12 @@
+---
+tags: [ maths ]
+---
+# realizar operaciones con decimales y asignar a una variable
+VAR=$(echo "scale=2; $SUMA*3" | bc -l)
+
+# Multiplicar numeros con decimales
+echo "(5.2*2)+10" | bc
+echo "scale=2; ((5.2*2)+10)-(6*2))" | bc
+
+# Decimales a partir de números enteros (usar scale=)
+bc <<< "scale=1; (($VAR1 - $VAR2) / $VAR1) * 100"

@@ -1,0 +1,8 @@
+---
+tags: [ vcs ]
+---
+# Mostar detalles de log y diferencias de un determinado commit
+git show [id]
+
+# Mostrar nombre y estado de los archivos modificados
+git show --name-status [id]

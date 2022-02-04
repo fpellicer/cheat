@@ -1,0 +1,11 @@
+---
+tags: [ python ]
+---
+# Run Python file
+%run file.py
+
+# Load Python file content
+%load file.py
+
+# Execute previous input in cell number
+%rerun <cell_number>

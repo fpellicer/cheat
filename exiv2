@@ -1,0 +1,24 @@
+---
+tags: [ metadata,info ]
+---
+# Ver metadatos de archivo
+exiv2 archivo.jpg
+
+# Salida mas completa
+exiv2 -pt archivo.jpg
+
+# Modificar fecha y hora (Original:2019:11:01 | Mod:00:00:00)
+exiv2 -M'set Exif.Photo.DateTimeOriginal 2019:11:01 00:00:00' archivo.jpg
+
+# Modificar multiples valores relativos a fecha/hora a la vez
+exiv2 -M"set Exif.Photo.DateTimeDigitized 2019:11:01 00:00:00" -M"set Exif.Image.DateTime 2019:11:01 00:00:00" archivo.jpg
+
+
+# Mostar un atributo concreto
+exiv2 -g Date -pt archivo.jpg
+
+# Borrar todos los metadatos
+exiv2 rm archivo.jp
+
+# Renombrado de archivos (jpg)
+exiv2 rename *.jpg

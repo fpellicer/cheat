@@ -1,0 +1,23 @@
+---
+tags: [ encoder ]
+---
+# Tolerancia a errores (-l opt)
+L, lowest
+M, Medium
+Q, Quality
+H, High
+
+# Crear código QR de una URL
+qrencode -o salida.png 'http://direccion.es'
+
+# Generar grafico EPS (salida en ASCII)
+qrencode -t EPS -o salida.eps 'Hola Mundo'
+
+# Especificar el tamaño de la imagen
+qrencode -s 10 -o salida.png archivo.vcard
+
+# Añadir texto en múltiples líneas
+qrencode -s 1 -m 2 -l L -o qr.png '
+Nombre: Tierra
+Tamaño: 200000 Km
+Distancia del Sol: 345000000 km'

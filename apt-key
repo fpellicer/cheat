@@ -1,0 +1,8 @@
+---
+tags: [ packaging ]
+---
+# Listar claves
+apt-key list
+
+# Actualizar clave expirada
+apt-key adv --keyserver keys.gnupg.net --recv-keys [KEY]

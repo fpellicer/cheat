@@ -1,0 +1,8 @@
+---
+tags: [ processor ]
+---
+# Valor hexadecimal de carácteres Unicode
+printf <copy_paste_character> | hexdump -C
+
+# Limitar la salida a 16 octetos
+hexdump -e '16/1 "%02x " "\n"'

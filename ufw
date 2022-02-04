@@ -1,0 +1,59 @@
+---
+tags: [ networking ]
+---
+# Check status of ufw
+ufw status verbose
+
+# Turn on with the defaut set of rules
+ufw enable
+
+# Open ssh port
+ufw allow ssh
+ufw allow 22/tcp
+
+# Add a comment
+ufw allow ssh comment 'Open port ssh tcp port 22'
+
+# Allow TCP port on #2222
+ufw allow 2222/tcp
+
+# Allow incoming ssh connections from specific IP address
+ufw allow from 202.54.1.1 to any port 22
+
+# Allow incoming ssh from specific subnets
+ufw allow from 202.54.1.1/29 to any port 22
+
+# Allow incoming ssh from specific subnet to IP and TCP port 22
+ufw allow from 10.8.0.0/24 to 10.8.0.1 port 22 proto tcp
+
+# Open DNS port 53
+ufw allow dns
+# Or
+ufw allow 53/tcp comment 'Open DNS tcp port 53'
+ufw allow 53/udp
+
+# Allow incoming DNS queries from specific IP
+ufw allow from 192.168.1.254 to any port 53
+
+# Limit incoming ssh port for all
+## Open incoming ssh but deny connections from IP that has attempted to 
+## initate 6 or more connections in the las 30 seconds
+ufw limit ssh
+ufw limit 22/tcp
+
+# Block specific IP address
+ufw deny from 192.168.1.2 to any
+
+# Block specific IP, port number and protocol
+ufw deny proto tcp from 192.168.1.2 to any port 80
+
+# Unblock IP address
+ufw status numbered
+ufw delete NUM
+
+# Find service info
+ufw app list
+
+# Get information from app
+ufw app info Squid
+

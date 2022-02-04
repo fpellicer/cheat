@@ -1,0 +1,2 @@
+# Resultado de la suma limpio
+sha1sum -c SHA1SUMS 2> /dev/zero | grep -i coincide

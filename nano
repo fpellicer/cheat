@@ -1,0 +1,31 @@
++LINEA,COLUMNA  Empieza en la linea N, columna N
+-Y=str          Resalta sintaxis (sh,php,.)
+-B              Abre archivo en modo Backup (crea copia del original)
+
+| Ctrl+o | Guardar archivo.
+| Ctrl+x | Salir de nano.
+| Ctrl+w | Buscar un texto en el editor.
+| Alt+w  | Buscar siguiente ocurrencia.
+| Alt+r  | Buscar y reemplazar (muestra submenú de opciones)
+| Ctrl+y | Ir a la pagina anterior.
+| Ctrl+v | Ir a la pagina siguiente.
+| Ctrl+a | Ir a inicio de linea.
+| Ctrl+e | Ir a final de linea.
+| Ctrl+k | Cortar.
+| Crtl+u | Pegar.
+| Alt+a  | Seleccionar texto moviendo el cursor (Alt+A cancela).
+| Alt+6  | Sin selección, copia toda la linea.
+| Alt+g  | Ir a columna/fila
+| Alt+AltGr+] | Ir a la llave correspondiente.
+
+# Habilitar/deshabilitar funcionalidades de Nano
+| Alt+b  | Editar con opción Backup              [on/off]
+| Alt+i  | Autoindentar                          [on/off]
+| Alt+m  | Soporte para ratón (selección)        [on/off]
+| Alt+h  | Activa tecla 'inicio inteligente'     [on/off]
+| Alt+y  | Coloreado de sitaxis                  [on/off]
+
+# Trabajo con línea largas
+| Alt+$  | Ajuste de línea soft (no inserta \n)  [on/off]
+| Alt+l  | Ajuste de línea hard (inserta \n)     [on/off]
+

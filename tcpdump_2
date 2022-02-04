@@ -1,0 +1,129 @@
+---
+tags: [ networking ]
+---
+# Show the network interface list
+tcpdump -D
+
+# Capture packets recived on network interface wlp58s0
+tcpdump -i wlp58s0
+
+# Capture packets from all available network interfaces
+tcpdump -i any
+
+# Print IP addresses an port numbers without DNS lookup or port name conversion
+tcpdump -n
+
+# Adjust output verbosity
+tcpdump -v[v[v]]
+
+## Capture Packets with a specific IP address or a subnet
+
+# Capture packets from source IP address 8.8.8.8
+tcpdump src 8.8.8.8
+
+# Capture packets originating from a source subnet 192.168.100.0/24
+tcpdump src net 192.168.100.0/24
+
+# Capture packets with a destination IP address 10.0.0.1
+tcpdump dst 10.0.0.0
+
+## Capture packets between two hosts or two subnets
+
+# Capture packets from 10.0.0.1 to 192.168.100.54
+tcpdump src 10.0.0.1 and dst 192.168.100.54
+
+# Capture packets from source network 10.10.0.0/24 to destination network 192.168.100.0/24
+tcpdump src net 10.10.0.0/24 and dst net 192.168.100.0/24
+
+# Capture packets between 10.10.0.1 and 192.168.100.54 in both directions
+tcpdump host 10.10.0.1 and host 192.168.100.54
+
+# Capture packets between two subnets 10.10.0.0/24 and 192.168.100.0./24 in both directions
+tcpdump net 10.10.0.0/24 and net 192.168.100.0/24
+
+## Capture Packets with a Specific Network Protocol
+
+tcpdump [ip] [icmp] [arp] [ ip6] [tcp] [udp]
+
+# Cpture TCP packets between 10.10.0.1 and 192.168.100.54 in both directions
+tcpdump tcp and host 10.10.0.1 and host 192.168.100.54
+ 
+## Capture Packets with Specific TCP/UDP Port(s)
+
+# Capture packets with destination port 80
+tcpdump dst port 80
+
+# Capture UDP packets with source port 4001
+tcpdump udp src port 4001
+
+# Capture SSH packets (either source or destination port 22)
+tcpdump port 22
+
+# Cpture packets with port 80 or 8000
+tcpdump port 80 or port 8000
+
+# Capture packets with TCP port 80 or UDP port 4001
+tcpdump 'tcp port 80 or udp port 4001'
+
+# Capture packets with port numbers between 800 and 900
+tcpdump portrange 800-900
+
+# Capture TCP packets with destination port range of [8000, 8010]
+tcpdump tcp dst portrange 8000-8010
+
+## Capture All Packets Excluding My Own SSH Session
+tcpdump port not 22 and not host 192.168.100.250
+
+## Capture the First N Number of Packets
+tcpdump -c 100 tcp
+
+## Capture Packets with Specific Packet Length
+
+# Capture packets whose length are greater than 200 bytes
+tcpdump greater 200
+
+# Capture TCP packets with destination port 80, and whose size are smaller than 200 bytes
+tcpdump tcp dst port 80 and less 200
+
+# Capture packets with packet size between 200 and 500 bytes
+tcpdump not less 200 and not greater 500
+
+## Capture Packets with Specific MAC addresses
+
+# Capture layer-2 broadcast traffic (i.e., packets with destination MAC address ff:ff:ff:ff:ff:ff)
+tcpdump ether dst ff:ff:ff:ff:ff:ff
+
+# Capture packets between e8:2b:88:ef:55:11 and 9c:b6:d0:ee:fd:90 in both directions
+tcpdump ether host e8:2b:88:ef:55:11 and ether host 9c:b6:d0:ee:fd:90
+
+# Capture packets sent to or received by e8:2b:88:ef:55:11
+tcpdump ether host e8:2b:88:ef:55:11
+
+## Print the Payload of Captured Packets
+
+# Print the payload of captured TCP packets in ASCII format
+tcpdump -A tcp
+
+## Save Captured Packets to a File, and Read Packets from a File
+
+# Save the first 1000 packets to a file trace.pcap
+tcpdump -c 1000 -w trace.pcap
+
+# Read only TCP packets from a file trace.pcap
+tcpdump -r trace.pcap tcp
+
+## Rotate Packet Capture Files by Time and Size
+
+# Rotate capture files every hour or every 500 MB, whichever comes first
+tcpdump -w /tmp/trace -W 24 -G 3600 -C 500
+
+# Rotate capture files every 30 minutes and name the capture files with collected timestamps
+tcpdump -w /tmp/trace-%Y-%m-%d_%H-%M.pcap -G 1800
+
+## Capture Packets with Different Timestamp Formats
+
+# Packet timestamp as the date followed by hours, minutes, seconds, and microseconds:
+tcpdump -tttt
+
+# Print relative timestamp (since the first packet captured)
+tcpdump -ttttt

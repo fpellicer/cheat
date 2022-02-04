@@ -1,0 +1,23 @@
+---
+tags: [ filesystem ]
+---
+# Desbloquear unidad cifrada
+udisksctl unlock -b /dev/sdxx
+
+# Montar la unidad en /media/
+udisksctl mount -b /dev/dm-x
+
+# Desmontar la unidad
+udisksctl unmount -b /dev/dm-x
+
+# Bloquear la unidad
+udisksctl lock -b /dev/sdxx
+
+# Montar unidad extraible usando sus privilegios de grupo
+udisksctl mount -b /dev/sdc1
+
+# Crear un dispositivo de bucle
+udiskctl loop-setup -f /path/to/image
+
+# Eliminar dispositivo de bucle (después de desmontar)
+udiskctl loop-delete -b /dev/loop0

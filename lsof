@@ -1,0 +1,88 @@
+---
+tags: [ admin ]
+---
+# Listar conexiones a la escucha 
+lsof -i TCP -n -P | awk '/LISTEN/ { print $1"/"$3"/"$8 }' | sort -u
+
+-i Tipo de red       | -n No resuelve el hostname
+-p PID               | -P No resuelve nombre de puertos
+-t Solo muestra PID  | -a AND selections
+-s p:e Filtra por protocolo(TCP|UDP):estado(LISTEN|ESTABLISHED|...)
++D /dir Busca archivos abiertos en /dir y sus subdirectorios
++M Habilita el mapeo de puertos locales TCP, UDP y UDPLITE si es soportado
++d /dir Solo busca archivos abiertos en /dir
+
+# Detalle de las columnas
+FD  File Descriptor
+ cwd  Current working directory
+ rtd  Root directory
+ txt  Program text (code and data)
+ mem  Memory-mapped file
+
+También números como 1u es el actual FD seguido de su modo
+ r  Read access
+ w  Write access
+ u  Read and Write access
+
+TYPE  Identification
+ DIR  Directory
+ REG  Regular File
+ CHR  Character Special File
+ FIFO First In First Out
+
+# Comprobar servicios/puertos a la escucha
+lsof -i -nP
+
+# Lista procesos, simialar a ps aux
+lsof -d txt
+
+# Buscar puertos a la escucha:
+lsof -Pnl +M -i4
+
+# Buscar programas que esten usando el puerto 80:
+lsof -i TCP:80
+
+# Conexiones TCP
+lsof -i :22
+
+# Conexiones de un @host especifico
+lsof -i @192.168.1.122
+
+# Conexiones de un @host especifico y puerto
+lsof -i @192.168.1.122:80
+
+# Conexiones a la escucha
+lsof -i -sTCP:LISTEN
+
+# Conexiones establecidas
+lsof -i -sTCP:ESTABLISHED
+
+# Todas las conexiones activas
+lsof -i | grep '\->'
+
+# Monitorizar varios usuarios
+lsof -u <user1>,<user2>
+
+# Monitorizar un programa
+lsof -c <command-name>
+
+# Lista ficheros abiertos por pid
+lsof -p 666
+
+# Procesos en un rango dado
+lsof -i TCP:5000-5100
+
+# Excluir usuario con el caracter '^'
+lsof -i -u^root
+
+# Lista los procesos accediendo a un archivo/directorio/dispositivo
+lsof </path/to/file>
+
+# Lista los ficheros abiertos en /ruta y sus subdirectorios
+lsof +D /ruta
+
+# Lista los ficheros borrados que aun estan abiertos (con menos de 1 link)
+lsof +L1
+
+# See this primer: http://www.danielmiessler.com/study/lsof/
+# for a number of other useful lsof tips

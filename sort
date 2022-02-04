@@ -1,0 +1,38 @@
+---
+tags: [ formatter,processor ]
+---
+# Ordenar archivos por numero no estando al principio
+# File: nombre-archivo_e7.sh
+sort -n -t_ -k 2.2
+# File: V003800_1_9.ts (soluciona error con núm tipo 8,9,10,11,..)
+sort -t_ -k3 -g
+sort --version-sort
+
+# ordenar un archivo
+sort archivo
+
+# ordenar en orden inverso
+sort -r archivo
+
+# ordenar numeros en forma legible (2K, 1G)
+sort -h archivo
+
+# ordenar deacuerdo con el valor numerico de la cadena
+sort -n archivo
+
+# elimina las lineas repetidas
+sort -u archivo
+
+-t  | separador de campo (-|_|:|etc)
+-k  | F[.C] F=numero de campo; .C=posicion del caracter en el campo
+-n  | por valor numerico
+-r  | invierte el orden
+-u  | ordena y elimina duplicados
+-h  | human readable
+-c  | comprueba si el archivo se ya esta ordenado
+-f  | ignore-case
+-M  | ordena en base al Mes (ene,feb,marzo)
+-R  | ordena de forma aleatoria
+-o nombre | Guarda la salida en 'nombre'. Si coinicide con el original
+            escribe el resultado en uno temporal, luego lo sobreescribe
+            

@@ -1,0 +1,15 @@
+---
+tags: [ date ]
+---
+# s segundos (default); m minutos; h horas; d dias
+# timeout DURACION COMANDO ARGS
+
+# Finalizar COMANDO pasados 5 segundos
+timeout 5s COMANDO
+
+# Especificar la señal que se envia
+timeout --signal=9 1m tracepath google.com
+timeout -s SIGTERM 30s ping google.com
+
+# Salir con el mismo status que COMANDO, incluso finaliza el tiempo
+timeout --preserve-status 10s COMANDO

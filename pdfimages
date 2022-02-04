@@ -1,0 +1,21 @@
+---
+tags: [ conversor,image ]
+---
+# Extrae imagenes de archivos PDF a PPM
+# Pertenece al paquete poppler-utils
+
+# Lista las imagenes que contiene el archivo PDF
+pdfimages -list file.pdf
+
+# Incluye el número de página en el nombre del archivo
+pdfimages -p file.pdf images
+
+# Rango de páginas a extraer
+pdfimages -f 2 -l 5 file.pdf images
+
+# Convierte las imagenes a PNG
+pdfimages -png file.pdf images
+
+# Extrae cada imagen en su formato
+# Equivale a -png -tiff -j -jp2 -jbig2 -ccitt
+pdfimages -all file.pdf images

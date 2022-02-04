@@ -1,0 +1,24 @@
+---
+tags: [ python ]
+---
+# Actualizar paquete instalado en 'user-site'
+# Con --upgrade actualiza dependencias ya instaladas
+pip3 install --upgrade --user <package>
+python3 -m pip install --upgrade --user <package>
+
+# pip list
+--outdated  # Paquetes desactualizados
+--uptodate  # Paquetes actualizados
+--user      # Instalados en 'user-site'
+--local     # En 'venv' con acceso global, lista solo paquetes locales
+--not-required  # Paquetes sin dependencias de otros instalados
+
+# Listar paquetes desactualizados
+pip3 list --outdated
+
+# Listar paquetes instalados en 'user-site', desactualizados
+# y sin dependencias de paquetes instalados
+pip3 list --outdated --user --not-required
+
+# Comprobar dependencias después de la instalación
+pip3 check

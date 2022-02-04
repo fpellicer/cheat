@@ -1,0 +1,19 @@
+---
+tags: [ python ]
+---
+# Iniciar shell interactivo ejecutando un archivo
+python3 -i file.py
+
+# Lanzar código arbitrario como una cadena en la shell
+python3 -c 'print('Hello, word')"
+python3 -c 'import sys; print(sys.path)'
+
+# Ejecutar archivo.py dentro del interprete Python
+# No cierra correctamente el script al finalizar (con close())
+exec(open('archivo.py').read())
+
+# Iniciar servidor http
+python3 -m http.server <puerto>
+
+# Servidor sólo accesible para el host local
+python3 -m http.server <puerto> --bind 127.0.0.1

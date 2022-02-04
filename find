@@ -1,0 +1,117 @@
+---
+tags: [ searching ]
+---
+# Extraer archivos de multiples carpetas al directorio superior
+find . -type f -iname '*.avi' -exec mv {} . \;
+
+# Buscar archivos de mas de xMB que NO sean archivos ISO y ZIP 
+find -size +100M \! -name '*.iso' \! -name '*.zip'
+
+# Buscar archivos de mas de xMB y menos de xMB, mostrar su tamaño y ordenar de mayor a menor
+find . -size +20M ! -size +400M -exec du -h {} \; | sort -rh
+
+# Buscar archivos de mas de xMB y los lista mostrando la ultima y quinta columna 
+## $NF Imprime el ultimo campo de cada linea
+find . -size +500M -exec ls -lh {} \; | awk '{print $NF " : " $5}' | column -t
+
+# Renombrar archivos masivamente sustituyendo 'php3' por 'php'
+find -name "*.php3" | sed 's/\(.*\).php3$/mv "&" "\1.php"/' | sh
+
+# Comentar la primera linea de un archivo en sources.list.d
+find /etc/apt/sources.list.d/ -name *tfi*.list -exec sed -i 's/^/# /' {} \;
+
+# Borrar las carpetas vacias
+find . -type d -empty -exec rmdir {} \;
+
+# Cambiar permisos de todas las carpetas del directorio actual
+find -maxdepth 1 -type d -exec chmod 750 '{}' \;
+
+# Cambiar permisos sólo de los directorios con permisos de administrador
+# -print0 y -0 establecen el separador de campo a null
+sudo find . -type d -print0 | sudo xargs -0 chmod 755 
+
+# Buscar los 10 archivos mas grandes en el directorio y subdirectorios
+find . -printf '%s %p\n' | sort -nr | head -10
+
+# Busca archivos con '.' y muestra solo el sufijo (extension) o ("*.???")
+find . -type f -name "*.*" | awk -F. '{print $NF}' | sort -u
+find . -type f | grep -o -E '\.[^\.]+$' | sort -u
+find . -type f -name "*.*" | grep -o -E "\.[^\.]+$" | grep -o -E "[[:alpha:]]{3,6}" | awk '{print tolower($0)}' | sort -u
+ 
+# To find files by octal permission:
+find . -type f -perm 777
+
+# To find files with setuid bit set:
+find . -xdev \( -perm -4000 \) -type f -print0 | xargs -0 ls -l
+
+# To find files with extension '.txt' and remove them:
+find ./path/ -name '*.txt' -exec rm '{}' \;
+
+# To find files with extension '.txt' and look for a string into them:
+find ./path/ -name '*.txt' | xargs grep 'string'
+
+# To find files with size bigger than 5 Mb and sort them by size:
+find ./ -size +5M -type f -print0 | xargs -0 ls -Ssh
+
+# To find files bigger thank 2 MB and list them:
+find / -type f -size +20000k -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
+
+# To find files modified more than 7 days ago and list file information
+find . -type f -mtime +7 -ls
+
+# To find symlinks owned by a user and list file information
+find . -type l --user=username -ls
+
+# To search for directories named build at a max depth of 2 directories
+find . -maxdepth 2 -name build -type d
+
+## Para busquedas multiples -o (-or) expr2 no se evalua si expr1 es true
+## En la misma cadena -a (-and) expr2 no se evalua si expr1 es false
+## No coincide ! ( -not ) verdadero si expr es false
+
+# Buscar archivo por nombre contenido en una variable
+find . -type f \( -iname "*${var// /-}*" -o -iname "*${var// /_}*" \)
+
+# Buscar nombre usando expresiones regulares
+# Los modos implementados son emacs (default), posix-awk, posix-basic, posix-egrep extended
+-regextype <type>
+ 
+-regex <regex> || -iregex <regex>
+
+# Copia archivos en multiples directorios de forma simultanea
+find /dir1/ /dir2/ /dir/3/ -maxdepth 0 -exec cp archivo {} \;
+
+# Excluir directorio y subdirectorios de la busqueda
+find . ! -path "*dirname*"
+
+# Buscar últimos archivos a partir de una fecha y copiar en otro directorio
+## -newerXY  a Access Time; B Birth Time; m Mod Time; t Interprete Ref Time 
+## Acepta fecha en formato Inglés  (LC_TIME='en_US.UTF-8' date)
+find . -type f -newermt "yyyy-mm-dd" -exec cp -vn {} /path/ \;
+
+# Buscar entre un determinado rango de fechas
+touch --date "2019-01-01" /tmp/start; touch --date "2019-06-01" /tmp/end
+find . -type f -newer /tmp/start -not newer /tmp/end
+
+# EVITAR asignar find a un array devido a que produce word splitting
+arr=($(find . -name 'string'))
+
+# Mejora el tiempo de ejecución de 'command' (como xargs), siempre retorna true
+-exec command '{}' \+
+
+# Terminar la busqueda en la primera conicidencia
+find -name '*mkv' -print -quit
+
+# Copiar todos los archivos excluyendo directorios
+find . -type f -not -path "./dir1/*" -not -path "./dir4/*" -exec cp '{}' /tmp \;
+
+# Listar directorios excepto los nombrados 'dir4'
+find . type d \( ! -name dir4 \) -print
+
+# Excluir 'dir4' de la busqueda (-prune ignora dir y archivos bajo el)
+find . -path ./dir4 -prune -o -exec basename {} \;
+
+# Convertir todas las imagenes PNG a WEBP
+# _ toma el valor de {} el cual se para como primer argumento
+find . -name '*.png' -exec sh -c 'cwebp -q 75 "$1" -o "${1%.png}.webp"' _ {} \;
+

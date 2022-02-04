@@ -1,0 +1,33 @@
+---
+tags: [ system,info ]
+---
+# Filtros
+emerg   El sistema no se puede usar
+alert   Se deben tomar medidas de inmediato
+crit    Condiciones críticas
+err     Condiciones de error
+warn    Condiciones de advertencia
+notice  Condición normal pero significativa
+info    Informativo
+debug   Mensajes a nivel de depuración
+
+# Filtrar alertas y advertencias criticas
+dmesg --level=alert,crit
+
+# Filtrar errores simples y advertencias
+dmesg --level=err,warn
+
+# Buscar referencias a dispositivos USB
+dmesg | grep -i usb
+
+# Buscar los puertos series (representados por tty)
+dmesg | grep -i tty
+
+# Mostrar datos de la memoria fisica (ram)
+dmesg | grep -i memory
+
+# Buscar módulos
+dmesg | grep nombre_modulo
+
+# Monitorizar las últimas 35 líneas en tiempo real
+watch "dmesg | tail -35"

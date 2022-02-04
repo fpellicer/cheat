@@ -1,0 +1,50 @@
+---
+tags: [ networking ]
+---
+# Opciones generales:
+--ignore-errors, -i     # Ignora errores de descarga, útil con playlists
+--flat-playlist         # Solo lista los vídeos de la playlist
+
+# Selección de video:
+--no-playlist           # Descarga solo el video, si la URL se refiere a video y playlist
+--playlist-start N      # Descargar la playlist desde N (1 default)
+--playlist-stop  N      # Detener la descarga de la playlist en N (última default)
+--playlist-items N,N-M  # Indices de la playlist a descargar (Ej: 1,3,5-9,...)
+
+# Opciones post-procesado:
+--audio-format FORMAT   # mp3, ogg, acc, (best default); Solo junto -x
+--audio-quality N       # 0 mejor, 9 peor (5 default)
+--extract-audio, -x     # Extrae el audio de un video
+--recode-video FORMAT   # mp4, mkv, avi, 
+--keep-video, -k        # Mantiene el video después del post-procesado
+
+# To download a video in 720p MP4:
+youtube-dl -f 22 example.com/watch?v=id
+
+# To download a video in 720p MP4 or WebM or FLV:
+youtube-dl -f 22/45/120
+
+# To list all available formats of a video:
+youtube-dl -F example.com/watch?v=id
+
+# To download a video to /$uploader/$date/$title.$ext:
+youtube-dl -o '%(uploader)s/%(date)s/%(title)s.%(ext)s' example.com/watch?v=id
+
+# To download a video playlist starting from a certain video:
+youtube-dl --playlist-start 5 example.com/watch?v=id&list=listid
+
+# To simulate a download with youtube-dl:
+youtube-dl -s example.com/watch?v=id
+
+# Download audio in best quality
+youtube-dl -f bestaudio example.com/watch?v=id
+
+# Descargar un video, extraer el audio en la mejor calidad y con formato mp3
+youtube-dl -f best --extract-audio --audio-format mp3 --audio-quality 0 example.com/watch?v=id
+
+# Merge best audio and video formats
+youtube-dl --audio-format best example.com/watch?v=id
+
+# For all video formats see
+# http://en.wikipedia.org/wiki/YouTube#Quality_and_codecs
+

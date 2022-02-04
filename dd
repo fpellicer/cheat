@@ -1,0 +1,35 @@
+---
+tags: [ copy,backup ]
+---
+# Medir velocidad de escritura en dispositivos
+dd if=/dev/zero of=/ruta/destino.txt bs=512k count=1024 conv=fdatasync
+
+# Transferir Ram a localizacion remota
+sudo dd if=/dev/kcore | cryptcat <ip_destino> <puerto_host>
+## En host desino (primer paso)
+cryptcat -l -p <puerto_entrada> | dd of=kcore.raw
+
+# Volcar la ram a un archivo
+sudo dd if=/dev/mem of=volcado_ram.raw
+
+# Reinicializar dispositivo a conf. de fabrica (formateado a medio nivel).
+sudo dd if=/dev/zero of=/dev/sdX
+
+# Respaldar y restaurar mbr
+sudo if=/dev/sdX of=respaldo.mbr bs=512 count=1
+sudo if=respaldo.mbr of=/dev/sdX
+
+# Respaldar y restaurar gpt
+sudo if=/dev/sdX of=respaldo.gpt bs=512 count=63
+sudo if=respaldo.gpt of=/dev/sdX 
+
+# Read from {/dev/urandom} 2*512 Bytes and put it into {/tmp/test.txt}
+# Note: At the first iteration, we read 512 Bytes.
+# Note: At the second iteration, we read 512 Bytes.
+dd if=/dev/urandom of=/tmp/test.txt count=512 bs=2
+
+# dd with status progress (coreutils 8.24+)
+dd if=src of=dest status=progress
+
+# Bootable usb
+sudo dd if=file.iso of=/dev/sdc status=progress oflag=sync

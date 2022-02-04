@@ -1,0 +1,14 @@
+---
+tags: [ admin ]
+---
+# Cambia a otro usuario (NO cambia $HOME)
+su USERNAME
+
+# Cambiar a otro usuario (cambia $HOME)
+su - USERNAME
+
+# Ejecutar comandos como USERNAME
+su USERNAME -c 'command; command > /outfile'
+
+# Cambiar manteniendo el entorno (no ejecutar .bashrc del nuevo usuario)
+su -p USERNAME

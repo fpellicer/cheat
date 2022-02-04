@@ -1,0 +1,22 @@
+# +Info virtualbox-manual
+# Información de una máquina virtual
+vboxmanage showvminfo <nombre_m_virtual>
+
+# Verificar la instalación de módulos (en host)
+rcvboxdrv setup
+
+# Verificar la instalación de módulos (en guest)
+rcvboxadd setup
+
+# Listar Extension Packs instalados
+vboxmanage list extpacks
+
+# Actualzar ExtPack sustituyendo el actual (previamente descargado desde pag. oficial)
+sudo vboxmanage extpack install --replace ~/Escritorio/Oracle_VM_VirtualBox_Extension_Pack-4.3.34-104062.vbox-extpack
+
+# Convertir imagen .img a .vdi
+VBoxManage convertfromraw --format VDI file.img file.vdi
+
+# Iniciar máquina virtual a pantalla completa desde el terminal
+virtualbox --fullscreen --startvm <nombre_de_la_máquina>
+

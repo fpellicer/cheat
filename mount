@@ -1,0 +1,29 @@
+---
+tags: [ filesystem ]
+---
+# Al contrario que FAT, en el que propietario y permisos pueden modificarse
+# al montar la unidad, EXT4 almacena estos datos en disco para cada archivo.
+# Por eso, para cambiar el propietario, grupo, permisos,etc.. se debe montar
+# la unidad y luego hacer uso de los comandos chown y chmod.
+
+# To mount / partition as read-write in repair mode:
+mount -o remount,rw /
+
+# To mount Usb disk as user writable:
+mount -o uid=username,gid=usergroup /dev/sdx /mnt/xxx
+
+# To mount a remote NFS directory
+mount -t nfs example.com:/remote/example/dir /local/example/dir
+
+# Crear un ramdisk
+mkdir /tmp/ramdisk
+mount -t tmpfs none /tmp/ramdisk -o size=1024M
+
+# Carpetas compartidas en virtualbox
+mkdir shared_guest
+sudo mount -t vboxsf -o uid=$UID,gid=$GID shared_host ~/shared_guest
+
+# Montar imagen RAW en solo lectura
+mount -t <type> -o ro, loop, offset=$((512*inicio_particion)) file.dd /mnt
+## Ver sector de início de la partición
+fdisk -l -u file.dd

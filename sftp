@@ -1,0 +1,17 @@
+---
+tags: [ networking ]
+---
+# conectar con una máquina remota (tambien desde nautilus)
+sftp://usuario@ip_máquina
+
+# Conectar a servidor con un puerto distinto a 22
+sftp -oPort=2022 user@host
+
+# help; para ver la lista de comandos que podemos usar
+
+# Descargar directorio remoto (y subdirectorios) y preservar permisos
+get -Pr pruebas/
+
+# Enviar un archivo al servidor
+put test.sh
+

@@ -1,0 +1,24 @@
+# Para modificar la variable $IFS (IPORTANTE COPYIFS=$IFS)
+echo -en "\n\b"
+echo $'\n'
+
+# Imprimir de 0 a 20 en intervalos de 2 (2 4 6 8]
+echo {0..20..2}
+
+# Imprimir dos rangos
+echo {{1..5},{10..15}}
+
+# Imprime la cadena del 1 al 8 incluido argumento inicial (url, url1, url2..) 
+echo "url"{,{1..8}}
+
+# Codifica/decodifica en base64
+echo "esto es una prueba" | base64
+echo "ZXN0byBlcyB1bmEgcHJ1ZWJhCg==" | base64 -d
+
+# Agregar carácter NULL al final de un archivo
+echo -n -e '\x00' >> archivo
+# Obtener el valor hash de una cadena de caracteres
+echo -n "cadena de caracteres" | sha1sum    # -n para que no se incluya el salto de linea final.
+
+# Imprimir carácteres Unicode
+echo $'\u2192'

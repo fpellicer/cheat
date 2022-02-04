@@ -1,0 +1,39 @@
+# Download a song, album or playlist
+spotdl <url>
+
+# Download all songs from an artist
+spotdl <artist url>
+
+# Search for and download a song
+spotdl 'song query'
+
+# To resume a failed/incomplete download
+spotdl '<title>.spotdlTrackingFile'
+
+# Queue up multiple download tasks
+spotdl <'song query'> <url> <playlist> ...
+
+# Download YouTube video with metadata from Spotify
+spotdl <'youtube_url|spotify_url'>
+
+# Download songs with different output format
+spotdl <url> --output-format [mp3, m4a, flac, opus, ogg, wav]
+
+# Generate .m3u file for each playlist
+spotdl <playlist> --m3u
+
+# Use YouTube instead of YouTube Music
+spotdl <url> --use-youtube
+
+# Manually choose a lyrics provider
+spotdl <url> --lyrics-provider [genius, musixmatch]
+
+# Change number of threads used when searching for songs
+spotdl <url> -st [number]
+
+# To use path template
+spotdl <url> --path-template [template]
+spotdl <url> --path-template '{artist}/{album}/{title} - {artist}.{ext}'
+
+  Possible Values:
+    {artist} {artists} {title} {album} {playlist} {ext}

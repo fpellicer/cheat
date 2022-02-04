@@ -1,0 +1,38 @@
+---
+tags: [ security ]
+---
+# Iniciar el password-store
+pass init <gpg-id>
+
+# Confiar en la clave generada
+gpg --edit-key <gpg-id>
+  trust
+  5
+
+# Añadir nuevas credenciales
+pass insert email/<direccion@dominio.xxx>
+
+# Mostrar passwords almacenados
+pass show
+
+# Mostrar password en claro de una cuenta
+pass <email/<direccion@dominio.xxx>
+
+# Copiar password al portapapeles
+pass -c email/<direccion@dominio.xxx>
+
+# Borrar una cuenta
+pass rm email/<direccion@dominio.xxx>
+
+# Editar password existente con Nano
+pass edit email/<direccion@dominio.xxx>
+
+# Generar passwords automaticamente
+pass generate email/<direccion@dominio.xxx> 20
+
+# Generar passwords sin simbolos (func. multilínea)
+pass generate email/<direccion@dominio.xxx> 20 -n
+
+# Guardar más información (passwd, url, pin, ..)
+pass insert email/<direccion@dominio.xxx> -m
+

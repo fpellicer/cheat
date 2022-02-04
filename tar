@@ -1,0 +1,63 @@
+---
+tags: [ compression ]
+---
+# -a --auto-compress  Use archive suffix to determine the compression program;
+# -x --extract; -f file; -v --vervose; -c --create; -t --list
+# -z --gunzip; -j --bzip2; -J xz; --lzip; --lzma; 
+# -p --preserve-permissions; 
+# -T --files-from=ARCHIVO Obtiene los nombres a extraer/crear de ARCHIVO
+# -r --append;
+# --remove-files  After adding to an archive;
+# -C --directory=DIR (DIR ya existe)
+# -O --to-stdout  Extrae los ficheros a la salida stándar
+
+# Leer un documento dentro del *.tar.gz sin extraerlo
+tar xzOf /ruta/archivo.tar.gz /ruta/interna/file.txt | less
+
+# Para extraer archivo *.tar.gz en OtraRuta
+tar xzvf /ruta/archivo.tar.gz -C OtraRuta
+
+# Crear tar indicando las rutas a en un archivo
+tar cvf /ruta/archivo.tar -T /ruta/archivo.txt
+
+# Modifcar ruta de salida (ej. var/www/site/page.html)
+tar -cjf site1.tar.bz2 -C /var/www/site1 .
+
+# To create an ecrypted compressed tar archive with GnuPG:
+tar czvpf - file1 file2 | gpg --symetric --cipher-algo aes256 -o secure.tar.gz.gpg
+
+# To uncopress an archive file encrypted with GnuPG:
+gpg -d secure.tar.gz.gpg | tar xzvf -
+
+# To extract an uncompressed archive:
+tar -xvf /path/to/foo.tar
+
+# To create an uncompressed archive:
+tar -cvf /path/to/foo.tar /path/to/foo/
+
+# To add on .tar
+tar -rvf /path/to/foo.tar /path/to/foo
+
+# To add only newer
+tar -uvf /path/to/foo.tar /path/to/foo
+
+# To extract a .gz archive:
+tar -xzvf /path/to/foo.tgz
+
+# To create a .gz archive:
+tar -czvf /path/to/foo.tgz /path/to/foo/
+
+# To list the content of an .gz archive:
+tar -ztvf /path/to/foo.tgz
+
+# To extract a .bz2 archive:
+tar -xjvf /path/to/foo.tgz
+
+# To create a .bz2 archive:
+tar -cjvf /path/to/foo.tgz /path/to/foo/
+
+# To list the content of an .bz2 archive:
+tar -jtvf /path/to/foo.tgz
+
+# To show metadata about the process
+tar xf file.tar --to-command=env | grep -i ^tar

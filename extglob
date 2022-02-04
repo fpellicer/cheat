@@ -1,0 +1,39 @@
+---
+tags: [ bash,shell ]
+---
+?(pattern-list)   Matches zero or one occurrence of the given patterns
+*(pattern-list)   Matches zero or more occurrences of the given patterns
++(pattern-list)   Matches one or more occurrences of the given patterns
+@(pattern-list)   Matches one of the given patterns
+!(pattern-list)   Matches anything except one of the given patterns
+
+Bash              Regular Expression
+?(pattern-list)   (...|...)?
+*(pattern-list)   (...|...)*
++(pattern-list)   (...|...)+
+@(pattern-list)   (...|...)    [@ not a RE syntax]
+!(pattern-list)   "!" used as for negative assertions in RE syntax
+
+# To remove all the files except *.jpg and *.gif and *.png
+rm !(*.jpg|*.gif|*.png)
+
+# To copy all the MP3 songs except one to your device
+cp !(04*).mp3 /mnt
+
+# To trim leading and trailing whitespace from a variable
+x=${x##+([[:space:]])}; x=${x%%+([[:space:]])}
+
+# List all the JPEG and GIF files that start with either "ab" or "def"
+ls +(ab|def)*+(.jpg|.gif)
+
+# List all the files that match the regular expression "ab(2|3)+.jpg"
+ls ab+(2|3).jpg
+
+# Matching everything except JPEG and GIF
+ls !(*.jpg|*.gif)
+
+# All the files that aren't JPEG or GIF and start with either "ab" or "def"
+ls !(+(ab|def)*+(.jpg|.gif))
+
+# Extended glob patterns can be nested, too
+[[ $fruit = @(ba*(na)|a+(p)le) ]] && echo "Nice fruit"

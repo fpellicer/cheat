@@ -1,0 +1,7 @@
+---
+tags: [ filesystem,info ]
+---
+# get/set SATA/IDE device parameters
+
+# Información completa
+sudo hdparm -I /dev/sdxx

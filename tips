@@ -1,0 +1,16 @@
+# Buscar repositorio duplicado.
+grep -R --include="*.list" <definicion_repo_duplicado> /etc/apt/
+ -luego se puede editar (sudoedit filename) comentando (#) la linea correspondiente o eliminando el repositorio correspondiente.
+
+# Ver correctamente boot.log.
+sed 's/\^\[/\E/g' /var/log/boot.log |less -R
+
+# Crear archivo vacio que ocupe N sin ser root.
+truncate -n 10G foo
+fallocate -l 5G foo
+
+# Recargar el archivo de configuracion.
+. .filerc 
+
+# Mostar las 5 primeras y últimas filas de un archivo
+(head -5; echo; tail -5) < /var/log/syslog

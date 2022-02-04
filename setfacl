@@ -1,0 +1,28 @@
+---
+tags: [ admin,filesystem ]
+---
+# sudo si no se es el propietario
+
+# cp -p; para perservar las acl al copiar
+# mv; preservará las acl
+# Ambos mostrarán Alerta si no pueden preservar las acl
+ 
+# Permisos 'rw' para el usuario 'foo'
+setfacl -m u:foo:rx <ruta>
+
+# Permisos 'r' para el grupo 'bar'
+setfacl -m g:bar:r <ruta>
+
+# Permisos para usuario, grupo y otros
+setfacl -m u:foo:rwx,g:bar:rw,o::r <ruta>
+
+# 'default' acl a un directorio
+# Archivos que contenga heredarán los permisos
+setfacl -m d:o:r <dir>      # others
+setfacl -m d:bar:rwx <dir>
+
+# Eliminar acl para el usuario 'foo'
+setfacl -x u:foo <ruta>
+
+# Eliminar todas las entradas acl
+set -b <ruta>

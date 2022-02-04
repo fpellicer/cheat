@@ -1,0 +1,2 @@
+# Comprobar si existe un grupo de archivos por extensión
+stat *.ext

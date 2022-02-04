@@ -1,0 +1,15 @@
+---
+tags: [ system,info ]
+---
+# Listar toda la información descrita en la BIOS
+sudo dmidecode | less
+
+# Información de la BIOS
+sudo dmidecode --type bios
+
+# Listar los tipos disponibles
+dmidecode --type
+# Tipos:
+# bios, system, baseboard, chassis, slot
+# processor, memory, cache, connector
+

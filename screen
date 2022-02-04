@@ -1,0 +1,18 @@
+---
+tags: [ image ]
+---
+# Start a new named screen session:
+screen -S session_name
+
+# Detach from the current session:
+Press Ctrl+A then press d
+
+# Re-attach a detached session:
+screen -r
+
+# Re-atach if exist multiple detached sessions:
+screen -r session_name
+screen -r <number>
+
+# List all screen sessions:
+screen -ls

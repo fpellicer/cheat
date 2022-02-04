@@ -1,0 +1,56 @@
+---
+tags: [ formatter ]
+---
+# printf cadenaformato [argumentos]
+# Interperta los caracteres de escape por defecto
+
+## %[flag][ancho][.precision]especificador
+
+%c > 1er caracter de una var cadena  | %g > el que menos ocupa entre %e y %f
+%d > decimal                         | %G > el que menos ocupa entre %E y %f
+%i > igual que %d (integer)          | %o > octal sin signo
+%e > exponencial (b.precisione[+-]e  | %u > numero sin signo (unsigned)
+%E > exponencial (b.precisionE[+-]e  | %b > interpreta secuencias de escape del argumento cadena
+%s > cadena (string)                 | %q > escribe arg. cadena para que pueda ser usado como entrada
+%p > path                                   para otro comando
+%x > hexadecimal en minuscula        | %X > hexadecimal en mayscula
+%% > % literal
+
+## flags
+# Se indica despues de %
+
++         > Preceder con + num. positivos
+[espacio] > Preceder con [espacio] num. positivos
+0         > Rellenar con 0s a la izquierda
+#         > Perceder con 0 num. en octal (%o) y por 0x los num. en hex. (%x y %X)
+-         > Alinear a la izquierda
+
+# Especificar ancho minimo que ocupa la cadena
+printf "|%10s|\n" cadena
+
+# Máximo para la cadena (.precisión)
+printf "|%-10.10s|\n" cadena
+
+# Rellena con 0s a la izquierda
+printf "|%010d|\n" 56
+
+# Devolver valor cadena num. punto flotante (redondea valor)
+printf "|%9.3f|\n" "123,4567"
+
+# Color en la salida (%b)
+printf "%b%s\n" "${CYAN} $all ${NONE}"
+
+# Secuencia numerica de dos digitos (01 02 03)
+printf '%s\n' {01..12}
+for (( num=1; num<=5; num++ )); do printf "%02d\n" $num; done
+
+# Imprimir secuencias UTF-8 (Hex: E2 98 A0) o Unicode
+printf '\xE2\x98\xA0'
+printf '\u2192'
+
+# Especificar el ancho del parámetro (5 espacios)
+printf "%*s" "5" ""
+printf "%5s" ""
+
+# Imprimir un carácter N veces
+printf "=%.0s" {1..20}

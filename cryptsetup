@@ -1,0 +1,14 @@
+---
+tags: [ security ]
+---
+# crear volumen cifrado con luks
+cryptsetup --verbose --verify-passphrase luksFormat /dev/sdXX
+
+# abrir volumen cifrado
+cryptsetup luksOpen /dev/sdXX nombre_dispositivo
+
+# crear el sistema de archivos y asignar etiqueta
+mkfs.ext4 -L <etiqueta> /dev/mapper/<dispositivo>
+
+# cerrar canal cifrado de la particion creada
+cryptsetup luksClose /dev/mapper/<dispositivo>

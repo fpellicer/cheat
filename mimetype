@@ -1,0 +1,5 @@
+---
+tags: [ metadata ]
+---
+-M, --magic-only  No comprueba por extensión, comodín o tipo de ínodo.
+-b, --brief       No precede la salida con el nombre del archivo.

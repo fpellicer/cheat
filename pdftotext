@@ -1,0 +1,20 @@
+---
+tags: [ conversor ]
+---
+# Extrae texto de archivos PDF
+# Pertenece al paquete poppler-utils
+
+# Buscar PATRON en un archivo pdf
+pdftotext file.pdf - | grep PATRON
+
+# Extraer texto de la primera página con EOL en formato UNIX
+pdftotext -eol unix file.pdf outfile
+
+# Extraer el texto de la página 2 a la 5 y codificación UTF-8
+pdftotext -f 2 -l 5 -enc UTF-8 file.pdf outfile
+
+# Extraer texto conservando el formato original
+pdftotext -layout file.pdf outfile
+
+# No insertar saltos de página entre páginas
+pdftotext -nopgbrk file.pdf outfile

@@ -1,0 +1,8 @@
+---
+tags: [ admin ]
+---
+# Desactivar la webcam
+sudo modprobe -v -r avcvideo
+
+# Activar la webcam
+sudo modprobe -v -a avcvideo

@@ -1,0 +1,55 @@
+---
+tags: [ image ]
+---
+# Girar una imagen y renombrarla
+convert -flip original.jpg renamed.jpg
+
+# Pasar a escala de grises y conservar el original
+convert -colorspace gray original.jpg renamed.jpg
+
+# Modificar el color de una imagen (-modulate "brightness,saturation,hue")
+convert -verbose folder-ubuntu.png -modulate "110,110,184" folder-ubuntu2.png
+
+# Crear un logo con nuestro nombre
+convert -size 310x70 xc:transparent -font currier -pointsize 72 -drawn "text 25,60 'bersil'" -gaussian 0x6 -fill yellow stroke black -draw "text 20,55 'bersil'" logo.png
+
+# Convertir jpg a png
+convert imagen.jpg imagen.png
+
+# Convertir jpg a pdf
+# Modificar la siguiente línea así en el archivo /etc/ImageMagick-6/policy.xml 
+# <policy domain="coder" rights="read|write" pattern="PDF" />
+convert imagen.jpg -verbose -enhance imagen.pdf 
+
+# Resize image dimension and change format (batch mode)
+convert *.jpg -resize 1024 .png
+
+# To resize an image to a fixed width and proportional height:
+convert original-image.jpg -resize 100x converted-image.jpg
+
+# To resize an image to a fixed height and proportional width:
+convert original-image.jpg -resize x100 converted-image.jpg
+
+# To resize an image to a fixed width and height:
+convert original-image.jpg -resize 100x100! converted-image.jpg
+
+# To resize an image without preserve aspect ratio:
+convert original-image.jpg -resize 100! converted-image.jpg
+
+# To resize all of the images within a directory:
+# To implement a for loop:
+for file in `ls original/image/path/`;
+    do new_path=${file%.*};
+    new_file=`basename $new_path`;
+    convert $file -resize 150 conerted/image/path/$new_file.png;
+done
+
+# Create a GIF animation sequence
+convert -resize 500 -delay 15 -loop 0 *.jpg animation.gif
+
+# Create thumbnails from batch images
+convert -thumbnail '500x500>' *.jpg thumb.jpg
+
+# Covert to webp (loseless=true|false)
+convert -define webp webp:loseless=true image.png image.webp
+

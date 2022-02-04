@@ -1,0 +1,5 @@
+---
+tags: [ filesystem,admin ]
+---
+# Listar permisos acl
+getfacl <ruta>

@@ -1,0 +1,33 @@
+---
+tags: [ ssh,networking ]
+---
+# To generate an SSH key:
+ssh-keygen -t rsa
+
+# To generate a 4096-bit SSH key:
+ssh-keygen -t rsa -b 4096
+
+# To update a passphrase on a key
+ssh-keygen -p -P old_passphrase -N new_passphrase -f /path/to/keyfile
+
+# To remove a passphrase on a key
+ssh-keygen -p -P old_passphrase -N '' -f /path/to/keyfile
+
+# To generate a 4096 bit RSA key with a passphase and comment containing the user and hostname
+ssh-keygen -t rsa -b 4096 -C "$USER@$HOSTNAME" -P passphrase
+
+# Show fingerprint from ssh_host_key.pub
+ssh-keygen -l -f ~/.ssh/ssh_host_key.pub
+
+# Search host in known_hosts
+ssh-keygen -F <ip/host> ~/.ssh/known_hosts
+
+# Show fingerprints from known_hosts
+ssh-keygen -l -f ~/.ssh/known_hosts
+
+# Remove host from known_hosts
+ssh-keygen -R <ip/host> ~/.ssh/known_hosts
+
+# To prevent new hashed entries
+# In /etc/ssh/ssh_config comment the line 'HashKnownHosts yes'
+

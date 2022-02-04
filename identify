@@ -1,0 +1,8 @@
+---
+tags: [ image,metadata ]
+---
+# Informacion detallada de una imagen
+identify -verbose imagen.png
+
+# Ancho de imagen
+identify -format %w imagen.png

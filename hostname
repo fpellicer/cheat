@@ -1,0 +1,8 @@
+---
+tags: [ networking ]
+---
+# Nombre del host
+hostname
+
+# IP del host
+hostname -I

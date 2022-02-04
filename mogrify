@@ -1,0 +1,26 @@
+---
+tags: [ image ]
+---
+# Redimensionar imagenes.
+mogrify -geometry 800x600 *.jpg
+
+# Reducir imagen a la mitad.
+mogrify -geometry 50% *.jpg
+
+# Convertir a escala de girses.
+mogrify -colorspace gray imagen.jpg
+
+# Agregar borde azul x20, escribir debajo a la derecha nuestro nickname, con fuente Currier, tamaño 12 y en color rojo.
+mogrify -border 20x20 -bordercolor blue -gravity SouthEast -font currier pointsize 16 -fill red -draw 'text 15,10 "bersil"' *.jpg
+
+# Convertir jpg a png
+mogrify -format jpg imagen.png
+
+# Modificar el color de una imagen (-modulate "brightness,saturation,hue")
+mogrify -verbose folder-ubuntu.png -modulate "110,110,184" folder-ubuntu.png
+
+-rotate 90  Gira imagen 90º
+-flip       Da la vuelta verticalmente
+-flop       Da la vuelta horizontalmente (efecto espejo)
+-border 5x5 Añade borde
+-frame 9x9  Añade un marco

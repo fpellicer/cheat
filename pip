@@ -1,0 +1,26 @@
+---
+tags: [ python ]
+---
+# Instalar paquete
+sudo pip install <paquete>
+
+# Instala paquete para python3
+sudo pip3 install <paquete>
+
+# Lista paquetes desactualizados
+pip list --outdated
+
+# Actualizar paquete (o --upgrade?)
+sudo pip install --update <paquete>
+
+# Desinstalar paquete
+sudo pip uninstall <paquete>
+
+# Listar paquetes instalados
+pip list
+
+# Informacion de paquete
+pip show
+
+# Buscar paquete
+pip find <paquete>

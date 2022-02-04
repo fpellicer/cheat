@@ -1,0 +1,23 @@
+# Crear multiples directorios  
+mkdir -p /media/name/{doc,mp3,jpg,rar,pdf,docx,zip,html,gif}
+
+# Usando rangos
+mkdir file{1..9}
+mkdir {{1..24},{55..90}}
+mkdir "URL"{,{1..42}}
+
+# Crear foo/bar, foo/baz, foo/baz/zip y foo/baz/zap
+mkdir -p foo/{bar,baz/{zip,zap}}
+
+# Con la fecha actual (year-month-day)
+mkdir $(date +%F)
+
+# Con la version del sistema
+ mkdir $(lsb_release -d | awk '{print $2"_"$3}')
+
+# Create a directory and all its parents
+mkdir -p foo/bar/baz
+
+-m, --mode=MODE   establece los permisos (como en chmod), en lugar de  a=rwx - umask
+-p, --parents     no hay error si existen, crea los directorios padres en caso necesario
+

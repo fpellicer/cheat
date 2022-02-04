@@ -1,0 +1,16 @@
+# Atajos del termial
+
+Ctrl+x+e Escribiendo un comando en bash, abre el editor de texto.
+
+Ctrl+a  Principio de linea.
+Ctrl+e  Fin de linea.
+Ctrl+b  Desplaza el cursor hacia atras un espacio.
+Ctrl+t  Desplaza hacia delante la letra detras del cursor.
+Ctrl+r  Reverse-Search. Busca 'cadena' en history. Ctrl+r hasta encontrar
+        coincidencia. Esc cuando la encuentres.
+Ctrl+u  Borra todo desde el cursor hacia atras.
+Ctrl+k  Borra todo desde el cursor hacia delante.
+Ctrl+w  Borra la ultima palabra (desde el cursos hacia atras).
+Ctrl+t  Conmuta la posicion de los dos ultimos caracteres.
+Ctrl+d  Delete- Borra una a una la palabra resaltada por el cursor.
+Ctrl+l  Clear.

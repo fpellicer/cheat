@@ -1,0 +1,13 @@
+---
+tags: [ filesystem ]
+---
+# Opcion (-n) en ntfs y ext4 imprimen resultado sin realizar modificaciones).
+
+# Crear particion NTFS.
+sudo mkfs.ntfs -v -f -L <label> /dev/sdXX
+
+# Crear particion Fat32.
+sudo mkfs.vfat -v -F 32 -n <label> /dev/sdXX
+
+# Crear particion Ext4 indicando % de bloques reservados.
+sudo mkfs.ext4 -v -m 0 /dev/sdxx

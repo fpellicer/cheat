@@ -1,0 +1,36 @@
+# Cuadro de diálogo para la entrada de texto
+zenity --entry --text="Escribe tu nombre"
+
+# Cuadro de diálogo con mensaje
+zenity --error --text="Error en la ejecución"
+zenity --question  # Muestra opciones "si|no"
+zenity --warning
+zenity --info
+
+# Mostrar notificaciones
+zenity --notification --window-icon=info --text="Notificaciones"
+
+# Cuadro de diálogo para mostar un calendario
+zenity --calendar --day=01 --month=01 --year=2021
+
+# Cuadro para la selección de archivos
+zenity --file-selection --title="Selecciona un archivo"
+
+# Cuadro para un selector de color
+zenity --color-selection --show-palette
+
+# Cuadro de diálogo de progreso
+zenity --progress --pulsate --text="Barra de progreso"
+
+# Cuadro de diálogo para escribir usuario y contraseña
+zenity --username --password
+
+# Cuadro de diálogo de escala (0-100)
+zenity --scale --text="Selecciona un valor" --value=90
+
+# Cuadro de diálogo par texto de información
+zenity --text-info --filename=file
+
+# Más info:
+# https://help.gnome.org/users/zenity/stable/
+

@@ -1,0 +1,13 @@
+---
+tags: [ packaging ]
+---
+# Excluye paquetes a actualizar
+
+# Marcar un paquete para que no se actualize
+sudo apt-mark hold <paquete>
+
+# Listar paquetes marcados
+apt-mark showhold
+
+# Desmarcar un paquete
+sudo apt-mark unhold <paquete>

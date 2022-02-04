@@ -1,0 +1,5 @@
+---
+tags: [ interpreter,conversor ]
+---
+# Convertir html a epub3
+pandoc -f html -t epub3 -o output.epub input.html

@@ -1,0 +1,46 @@
+---
+tags: [ multimedia,transcoding,streaming ]
+---
+avconv [global options] [input options] -i [input file] [output options] [output file]
+
+## Ver lista codecs||encoders||decoders
+avconv -codecs
+
+# Convertir una pista de audio a mp3
+avconv -i in_track.wav -acodec libmp3lame -b 192k out_track.mp3
+
+# Convertir un video con el codec h264
+avconv -i video_input -ab 196k -ac 2 -vcodec libx264 video_output.mp4
+
+# Girar un video 90 grados a la derecha (180 grados: transpose=1,transpose=1)
+avconv -i video_input -vf transpose=1 -crf 19 -acodec libmp3lame video_output.mp4
+
+-threads n    (0 usara todos los disponibles, auto)    | -vn     Elimina el video
+-s size       (ej. 1280x720, hd720, hd1080)            | -an     Elimina el audio
+-b:[a|v] #    Bitrate:audio|video (1600k)              | -f      Formato de salida (wav, mp3, webm, etc)  
+-r framerate  (ej. 24) fps                             | *-%03d  Formato para el nombre de las imagenes
+-ac           (audio channels ej. 2)                   | -ss     Posicion (en segundos o hh:mm:ss.xx)
+-vcodec       Video codec (copy, copia el codec)       | -t      Duracion (en segundos o hh:mm:ss.00)
+-acodec       Audio codec (copy, copia el codec)       | -qscale:[a|v] [9-0] (vbr)(calidad 9:menor 0:mayor) 
+-aq           Audio quality (codec-specific, VBR)???   |         Rango kbit/s (0:220-260)(3:150-195)
+-crf          Output quality (0 losless. Entre 14-25)  | -ar     Audio rate (44100)Hz
+-c:[a|v]:#    Codec:audio|video:stream number (copy,.) |
+
+# Extraer audio de un archivo multimedia
+avconv -i input.mp4 -vn -f wav output.wav
+
+# Extraer audio de un archivo multimedia indicando la duracion (incluso ac3)
+avconv -i input.avi -ss 50 -t 175 -vn -c:a copy output.mp4
+
+# Extraer el video de un archivo multimedia
+avconv -i input.avi -an -vcodec libx264 -an -f mp4 output.mp4
+
+# Mezclar un archivo de audio con otro de video
+avconv -i audio.wav -i video.avi output.mkv
+
+# Convertir video en imagenes
+avconv -i input.mp4 -r 1 -s 1366x768 -f image2 image%03d.png
+
+# Convertir audio a ogg (0:peor 255:mejor -elejir una u otra)
+avconv -i inputfile -c:a libvorbis -qscale:a [0-255] targetfile.ogg
+

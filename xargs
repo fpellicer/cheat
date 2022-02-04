@@ -1,0 +1,23 @@
+# find all file name ending with .pdf and remove them
+find -name *.pdf | xargs rm -rf
+
+# if file name contains spaces you should use this instead
+find -name *.pdf | xargs -I{} rm -rf '{}'
+
+# Will show every .pdf like:
+#	&toto.pdf=
+#	&titi.pdf=
+# -n1 => One file by one file. ( -n2 => 2 files by 2 files )
+
+find -name *.pdf | xargs -I{} -n1 echo '&{}='
+
+# Copy file to multiple directories
+xargs -n 1 cp -v filename<<<"/dir1/ /dir2/ /${HOME}/3/"
+echo "/dir1/ /dir2/ /dir/3/" | xargs -n 1 cp -v filename
+
+# Create as many processes as we indicete (-P0 infinite)
+xargs -P3
+
+# Rename all matching occurrences
+find -name '*.cfg' -print0 | xargs -0 -I'{}' mv '{}' '{}'.bak
+

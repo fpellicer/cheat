@@ -1,0 +1,9 @@
+---
+tags: [ admin ]
+---
+# Cambiar el grupo primario durante la sesión
+newgrp other_group
+
+# Cambiar el grupo cambiando el entorno al nuevo grupo
+newgrp - other_group
+

@@ -1,0 +1,26 @@
+---
+tags: [ filesystem ]
+---
+# Permite modificar los parámetros de los sistemas de ficheros ext2/ext3/ext4.
+
+# Muestra informacion de la partición (igual que dumpe2fs).
+tune2fs -l /dev/sdxx
+
+# Cuando se monte 50 veces la partición, fsck realizara un test.
+tune2fs -c 50 /dev/sdxx
+
+# Desactiva la comprobación por montajes.
+tune2fs -c -1 /dev/sdxx
+
+# Raliza comprobación pasados 10 [dias|semanas|meses].
+tune2fs -i 10[d|w|m] /dev/sdxx
+
+# Desactiva la comprobación por tiempo.
+tune2fs -i 0 /dev/sdxx
+
+# Modificar el porcentaje de bloques reservados (5% por defecto).
+tune2fs -m 2 /dev/sdxx
+
+# Moficar las opciones de montaje (ver man ext4).
+tune2fs -O <opciones> /dev/sdxx
+

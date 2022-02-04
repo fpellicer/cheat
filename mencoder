@@ -1,0 +1,10 @@
+---
+tags: [ multimedia ]
+---
+# reparar index de archivo avi [-idx]
+mencoder -forceidx input.avi -oac copy -ovc copy -o output.avi
+
+# unir varios archivos avi en uno solo
+mencoder -input01.avi input02.avi -forceidx -oac copy -ovc copy -o output.avi
+
+

@@ -1,0 +1,14 @@
+---
+tags: [ processor ]
+---
+# Elimina todos los caracteres ':' del archivo enviado el resultado a otro archivo
+tr -d: < archivo.txt > salida.txt
+
+# Convierte mayusculas en minusculas
+tr '[A-Z]' '[a-z]' < archivo.txt > salida.txt
+
+# Convierte archivo con formato Dos a formato Unix (no es seguro en utf-8)
+tr -d "\r" < archivo.dos > archivo.unix
+
+# Contar cuantas veces se repite un argumento (",")
+tr -cd , <file.txt | wc -m

@@ -1,0 +1,24 @@
+---
+tags: [ packaging ]
+---
+# Listar todos los snaps instalados en nuestro PC
+sudo snap list
+
+# Buscar un snap
+sudo snap find <palabra_a_buscar>
+
+# Instalar un snap
+sudo snap install <paquete>
+
+# Actualizar un snap
+sudo snap refresh <paquete>
+
+# Actualizar todos los snaps
+sudo snap refresh
+
+# Volver a la versión anterior del snap
+sudo snap revert <paquete>
+
+# Borrar snap
+sudo snap remove <paquete>
+

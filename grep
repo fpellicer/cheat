@@ -1,0 +1,79 @@
+---
+tags: [ processor ]
+---
+# Excluir grep de la salida de ps
+pgrep
+grep [h]ttp
+
+# Mostrar pid de programa
+pgrep <programa>
+
+# Buscar repositorio duplicado
+grep -R --include="*.list" <definicion_repo_duplicado> /etc/apt/
+ -luego se puede editar (sudoedit filename) comentando (#) la linea correspondiente o eliminando el repositorio correspondiente.
+
+# Multiples argumentos a buscar
+grep -E '(hola|adios|test)'
+
+-n                        | numera las lineas ( -n1 es equivalente a -nC 1 )
+-B, --before-context=NUM  | muestra NUM lineas de contexto anterior
+-A, --after-context=NUM   | muestra NUM lineas de contexto posterior
+-C, --context=NUM         | muestra NUM lineas de contexto ( -1, -2, -3 es equivalente )
+-l, --files-with-matches  | Muestra solamente los nombres de FICHEROs
+-w, --word-regexp         | Coincide exactamente con PALABRAS completas
+-x, --line-regexp         | Coincide exactamente con LINEAS completas
+-c, --count               | Cuenta el num. de conicidencias de una regex
+-o, --only-match          | Muestra solamente las que coinciden con PATRON
+-a, --text                | Filtra archivo con contenido binario como texto
+-F, --fixed-strings       | No interpreta carácteres especiales
+
+# No conincide con linea en blanco (acaba despues de que empieza)
+grep -v ^$
+
+# No coincide con
+ls -aF | grep -v /$
+
+# Coincide con expr1 y con expr2
+ls -aF | grep ^[.] | grep /$
+
+# Coincide con expr1 pero no con expr2
+ls -aF | grep ^\\. | grep -v /$
+
+# Sin distincion de mayusculas
+grep -i expresion archivo
+
+# Buscar errores en Xorg
+grep -E '(WW|EE)' /var/log/Xorg.0.log
+
+# Buscar archivos con extension
+grep -E '*\....'$
+egrep '*\.[[:alnum:]]{3}'$
+
+# Rangos numericos de dos cifras (del 1 al 15)
+grep -E '[1-9]|[0-5]'
+grep -E *e'[1-9]|[0-4]'.sh
+
+# Contiene corchetes
+grep 'cadena\[cadena\]'
+
+# Coincide (caracter)dos caracteres\primer caracter
+egrep '(.)..\1' file
+egrep '(.)(.){0,2}\1' file  #2ndo caracter de 0 a 2 veces
+
+# Filtrar desde strderr
+<comando> 2>&1 > /dev/null | grep <word>
+
+# Recursively grep for string <pattern> in folder:
+grep -R pattern folder
+
+# Getting pattern from file (one by line):
+grep -f pattern_file file
+
+# Archivos que se encuentran en phone pero no en hhd
+grep -v -x -f /tmp/hhd /tmp/phone
+
+# Obtener el contenido que se encuentra entre los parentesis (inpi, am).
+str='(ada(inpi)IO) d(I E)nfor(am)tica'
+# Incluye los parentesis
+grep -oP '\((\w+)\)' <<< "$str"
+

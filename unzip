@@ -1,0 +1,21 @@
+---
+tags: [ compression ]
+---
+# Descomprimir archivo
+unzip archivo.zip
+
+# Ver contenido
+unzip -v archivo.zip # + info
+unzip -l archivo.zip # - info
+
+# Ver el contenido de un archivo por la 'stdout'
+unzip -p file.zip file/name.xx | less
+
+# Descomprimir en 'directorio'
+unzip archivo.zip -d directorio
+
+# Descomprimir solo un archivo (indicando ruta interna del archivo)
+unzip -j archivo.zip "archivo/foo/bar/archivo.txt" -d .
+
+-j # Omite estructura interna de directorios al extraer archivo
+

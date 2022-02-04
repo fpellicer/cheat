@@ -1,0 +1,18 @@
+---
+tags: [ bash ]
+---
+# Same as declare -r
+
+# Make variable readonly
+readonly var
+
+# Make function readonly
+readonly -f functionName
+
+# Display all readonly variables
+readonly
+# Or
+readonly -p
+
+# Display all readonly functions
+readonly -f

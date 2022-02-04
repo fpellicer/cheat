@@ -1,0 +1,62 @@
+---
+tags: [ networking ]
+---
+# Enviar contenido a canales públicos
+#   Se puede indicar como ID el nombre del canal (-d chat_id=@nombre_canal)
+
+# chat_id en un canal privado
+#   Ir a https://web.telegram.org y entar en el canal privado.
+#   La url es tipo: https://web.telegram.org/#/im?p=cXXXXXXXXXX_578236787445474833
+#   El identificación es la parte XXXXXX (entre "p=c" y el guión bajo).
+#   Agregar "-100" delante.
+#   Por lo tanto, si "XXXXXX" es "4785444554" el ID privado es "-1004785444554"
+
+# Token acceso API
+TOKEN='3720081693:Q4S6sQ:sImw0_AcYFFDsn-mi8njBvxYniyF'
+# ID
+ID='4785444554'
+# ID Canal
+ID_CANAL='-1004785444554'
+# Url bot
+URL="https://api.telegram.org/bot${TOKEN}"
+
+# Información básica de tu bot
+curl --request GET "${URL}/getMe"
+
+# Informacíon básica del chat
+curl "${URL}/getChat" -F chat_id="$ID_CANAL"
+
+# Acceder a los últimos mensajes enviados
+curl -X GET "${URL}/getUpdates"
+
+# Enviar mensaje a un canal
+curl -s -X POST "${URL}/sendMessage" -d chat_id="$ID_CANAL" -d text="Text Message"
+
+# Enviar mensaje con saltos de línea
+curl "${URL}/sendMessage -F chat_id="$ID_CANAL" -F text="First Line
+second line
+third line"
+
+# Editar mensaje de texto
+# message_id: Últimos números del enlace al mensaje (https://t.me/c/<id>/<message_id>)
+curl "${URL}/editMessageText" -F chat_id="$ID_CANAL" -F message_id=<number> -F text "New Text"
+
+# Enviar imágen
+curl -X POST "${URL}/sendPhoto" -F chat_id="$ID" -F photo="@/path/to/image.jpg"
+
+# Enviar imágen de internet
+curl -X POST "${URL}/sendPhoto" -F chat_id="$ID" -F photo="http://site.com/image.png"
+
+# Adjuntar texto a la imágen
+curl -X POST "${URL}/sendPhoto" -F chat_id="$ID" -F caption="<text>" -F photo="@${IMAGE}"
+
+# Enviar archivos
+curl -X POST "${URL}/sendDocument" -F chat_id="$ID" -F document="@/path/to/file.tar"
+
+# Adjuntar texto junto al archivo
+curl -X POST "${URL}/sendDocument" -F chat_id="$ID" -F caption="$TEXT" -F photo="@${DOCUMENT}"
+
+# Archivar directorio con tar y subirlo a un canal
+tar cf - dir/ | curl -F "${URL}/sendDocument" -F chat_id="$ID_CANAL" -F caption "#tag" \
+  -F "document=@-; filename=name_to_file.tar"
+

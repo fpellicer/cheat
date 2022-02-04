@@ -1,0 +1,20 @@
+---
+tags: [ environment ]
+---
+declare -a   Muestra todos los arrays.
+
+declare -i   UID="500" la variable UID se tratará como un entero.
+
+declare -f   Muestra todas las funciones de forma extendida.
+
+declare -F   Muestra solo los nombres de funciones.
+
+declare -p   Mostrará los atributos y valores de cada nombre.
+
+declare -x   Visualiza las variables exportables (es equivalente a ejecutar export).
+
+declare -r   Muestra las variables que son de solo lectura, constante simbólica.
+
+declare -ir  Muestra todas las variables enteras y no modificables.
+
+# Si a una variable declarada como entero se le asigna un valor que no lo es, esta valdrá 0.

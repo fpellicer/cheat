@@ -1,0 +1,15 @@
+---
+tags: [ filesystem ]
+---
+# Saber la fragmentación de una partición
+
+# La unidad tiene que estar desmontada
+sudo fsck.ext4 -vpf /dev/sd**
+
+# Opciones
+
+-v	Genera más mensajes de diagnóstico
+-p	Reparación automática (sin hacer preguntas)
+-f	Fuerza la revisión aún si el sistema de ficheros está etiquetado como limpio
+-n	No se hacen cambios al sistema de ficheros
+-c	Busca los bloques dañados y los agrega a la lista de bloques dañados

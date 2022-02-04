@@ -1,0 +1,9 @@
+# Pagina o columna archivos para impresion. Se puede enviar la entrada estandard
+
+-N          N de columnas (--columns=N)
+-h "texto"  Texto cabecera
+-o N        Margen N espacion
+-l N        Longitud de pagina (65 por defecto)
+
+# Muestra en columnas la salida del comando ls
+ls */* | pr -4 -o 4 | less

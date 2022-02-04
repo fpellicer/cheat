@@ -1,0 +1,53 @@
+---
+tags: [ packaging ]
+---
+# Find location of installed packege
+sudo apt content <package-name>
+
+# Check all dependences of a package
+sudo apt depends <package-name>
+
+# Search for a package
+sudo apt search <package-name>
+
+# View information about package
+sudo apt show <package-name>
+
+# Verify a package for a broken dependences
+sudo apt check <package-name>
+
+# List recommended missing packages of given package
+sudo apt recommends <package-name>
+
+# Check installed package version
+sudo apt version <package-name>
+
+# List installed packages
+apt list --installed
+
+# Remove unused packages
+sudo apt autoremove
+
+# Clean old repository of downloaded packages
+sudo apt autoclean 
+ or
+sudo apt clean
+
+# Remove packages with its configuration files
+sudo apt purge <package-name>
+
+# Install deb package
+sudo apt deb <package-name.deb>
+
+# Remove packages groups
+sudo apt remove $(dpkg --get-selections | awk '/package_name/ {print $1}')
+
+# Show package and source info 
+apt policy <package>
+
+# Fix broken dependencies
+apt --fix-broken install
+
+# Show change log package
+apt changelog <package>
+

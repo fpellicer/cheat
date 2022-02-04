@@ -1,0 +1,14 @@
+---
+tags: [ security ]
+---
+# Generar/actualizar ddbb del estado del sistema ( para comparar futuros analisis ).
+sudo rkhunter --propupd
+
+# Actualizar ddbb de la aplicacion ( info sobre rootkits, backdoors, malware, etc ).
+sudo rkhunter --update
+
+# Realizar escaneo completo
+sudo rkhunter -c --enable all
+
+## Después de cada cambio en la configuración hay que volver a actualizar la base de datos de rkhunter,
+## sino aparecerán alertas y errores ( primer comando ).

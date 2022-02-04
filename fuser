@@ -1,0 +1,8 @@
+---
+tags: [ admin,system ]
+---
+# Ver que proceso hace uso de un puerto concreto
+fuser -n tcp 80
+
+# Listar procesos que haciendo uso de un filesystem
+fuser -mv /path

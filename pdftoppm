@@ -1,0 +1,23 @@
+---
+tags: [ conversor ]
+---
+# Portable Document Format (PDF) a Portable PixMap (PPM)
+# Pertenece al paquete poppler-utils
+
+# Convertir PDF en imágenes JPEG especificando la calidad (0 a 100)
+pdftoppm -jpeg -jpegopt quality=90 in.pdf out
+
+# Convertir sólo la primera página
+pdftoppm -jpeg -f 1 -l 1 in.pdf out
+
+# Indicar primera y última página a convertir
+pdftoppm -png -f 3 -l 5 in.pdf out
+
+# Modificar la resolución de salida (150 DPI default)
+pdftoppm -r 300 in.pdf out
+pdftoppm -rx 300 -ry 200 in.pdf out
+
+# Generar archivos monocromo o escala de grises
+pdftoppm -mono in.pdf out
+pdftoppm -gray in.pdf out
+

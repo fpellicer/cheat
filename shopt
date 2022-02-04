@@ -1,0 +1,13 @@
+---
+tags: [ bash,shell ]
+---
+# Permite controlar las variables que son utilizadas por la shell para configurar su funcionamiento.
+
+shopt [-p]    | Lista todas las variables disponibles y muestra si estan activadas o no.
+shopt -s      | Lista solo las variables que estan activadas.
+shopt -s var  | Establece la variable.
+shopt -u var  | Desactiva la variable.
+
+lastpipe      | Permite acceder al valor de una variable ejecutada en un subshell.
+nullglob      | Si no expande el comodín no retorna valor (patrón se trata literalmente)
+globstar      | ** coincide con 0 o más directorios

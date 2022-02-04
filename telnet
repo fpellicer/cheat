@@ -1,0 +1,7 @@
+---
+tags: [ networking ]
+---
+# Resetear router (acceder al interprete de comandos del router)
+sys reboot
+
+

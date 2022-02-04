@@ -1,0 +1,6 @@
+---
+tags: [ info ]
+---
+# Ver temperatura cada segundo
+watch -n 1 sensors
+

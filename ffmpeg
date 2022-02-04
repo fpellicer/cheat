@@ -1,0 +1,53 @@
+---
+tags: [ multimedia,transcoding,streaming ]
+---
+# Print file metadata etc.
+ffmpeg -i path/to/file.ext
+
+# Compress a video with a good quality
+ffmpeg -i input -c:v libx264 -crf 24 -preset slow output.mkv
+
+# Convert to x265 codec
+ffmpeg -i input -c:v libx265 -crf 28 -c:a libmp3lame -b:a 128k output.mkv
+
+# Convert all m4a files to mp3
+for f in *.m4a; do ffmpeg -i "$f" -acodec libmp3lame -vn -b:a 320k "${f%.m4a}.mp3"; done
+
+# Convert video from .foo to .bar
+# -g : GOP, for searchability
+ffmpeg -i input.foo -vcodec bar -acodec baz -b:v 21000k -b:a 320k -g 150 -threads 4 output.bar
+
+# Convert image sequence to video
+ffmpeg -r 18 -pattern_type glob -i '*.png' -b:v 21000k -s hd1080 -vcodec vp9 -an -pix_fmt yuv420p -deinterlace output.ext
+
+# Combine video and audio into one file
+ffmpeg -i video.ext -i audio.ext -c:v copy -c:a copy output.ext
+
+# Listen to 10 seconds of audio from a video file
+#
+# -ss : start time
+# -t  : seconds to cut
+# -autoexit : closes ffplay as soon as the audio finishes
+ffmpeg -ss 00:34:24.85 -t 10 -i path/to/file.mp4 -f mp3 pipe:play | ffplay -i pipe:play -autoexit
+
+# Extract an image every X seconds (fps = 1 Frame Per Second)
+ffmpeg -i input -vf fps=1 coding%004d.jpg
+
+# Extract only one frame
+ffmpeg -i input -ss 00:01:07.000 -vframes 1 oneframe.jpg
+
+# Inserting watermark (upper-left and lower-right corner)
+ffmpeg -i input -i logo.png -filter_complex "overlay" -c:a copy output.mp4
+ffmpeg -i ... -filter_complex "overlay=W-w-10:H-h-10" -c:a copy output.mp4
+# ... and scale logo to 150
+ffmpeg -i ... -filter_complex "[1:v] scale=150:-1 [ol], [0:v] [ol] overlay" -c:a ...
+
+# Video/audio rescaling keeping aspect ratio
+ffmpeg -i input.avi -vf scale=320:-1 output.avi
+
+# Use ffmpeg in loops
+# Just add </dev/null to prevent ffmpeg from reading its standard input
+< /dev/null ffmpeg ...  or  ffmpeg ... < /dev/null
+
+# Fix corrupted mkv file (no physically errors in bad sectors)
+ffmpeg -err_detect ignore_err -i input.mkv -c copy video_fixed.mkv

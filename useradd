@@ -1,0 +1,32 @@
+---
+tags: [ admin ]
+---
+# Uso: useradd [opciones] <usuario>
+
+# Crear un nuevo usuario (passwrd obligatoria)
+useradd <nuevo_usuario>
+passwd <nuevo_usuario>
+
+# Crear nuevo usuario en un dir. distinto a /home
+useradd -d /nuevo/dir <nuevo_usuario>
+
+# Crear nuevo usuario especificando UID y GID (ID's unicos)
+useradd -u 999 -g 500 <nuevo_usuario>
+
+# Crear usuario incluido en multiples grupos adicionales
+useradd -G admins,webadmin,developers <nuevo_usuario>
+
+# Crear usuario con cuenta con fecha de caducidad (formato:YYYY-MM-DD)
+useradd -e 2017-03-27 <nuevo_usuario>
+chage -l <usuario> # Muestra la info. del usuario
+
+# Crear usuario con passwrd con fecha de caducidad
+useradd -e 2017-03-27 -f 45 <nuevo_usuario>
+
+# Crear usuario asignando Shell de login (o sin Shell)
+useradd -s /sbin/nologin <nuevo_usuario>
+
+# Crear usuario con un 'home' especifico, Shell y un comentario
+# -U crea/agrega un grupo con el mismo nombre del usuario
+useradd -m -d /var/www/rav -s /bin/bash -c "Comentario" -U rav
+

@@ -1,0 +1,55 @@
+---
+tags: [ processor ]
+---
+# Busqueda hacia adelante
+# (n próxima coincidencia adelante; N próxima coincidencia atrás)
+/
+
+# Busqueda hacia atrás
+# (n próxima coincidencia atrás; N próxima coincidencia adelante)
+?
+
+# Esperar por la entrada de datos
+F
+
+# Avanzar/retroceder N líneas adelante/atrás
+Nj
+Nk
+
+# Mostrar sólo los patrones que coniciden
+&<patrón>
+
+# Marcar una posición para volver posteriormente
+# Marcar con la letra a
+ma
+# Ir a la posición a
+'a
+
+# Muestra nombre de archivo, línea, bytes y porcentaje
+Ctrl+G
+
+# Adelante/atrás una ventana
+f; b
+Ctrl+F; Ctrl+B
+
+# Cambiar a modo edición
+v
+
+# Abrir múltiples archivos
+:e file2
+less file1 file2
+
+# Cambiar entre los archivos (anterior/siguiente)
+:n; :p
+
+
+## Opciones
+
+# Interpreta los caracteres de escape de color ASCII en formato RAW.
+less -R
+
+# Ir a un número de línea concreto
+less +<número_línea>
+
+# To disable the terminal refresh when exiting
+less -X

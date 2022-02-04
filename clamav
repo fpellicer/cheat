@@ -1,0 +1,11 @@
+---
+tags: [ security ]
+---
+# analiza un directorio concreto y guarda el log de salida
+clamscan -r /home/directorio -l logfile.txt
+
+# muestra solo infectados
+clamscan -r /home/directorio -i
+
+# filtrar el log
+grep -i found logfile.txt

@@ -1,0 +1,28 @@
+---
+tags: [ formatter ]
+---
+# Reemplazar todos los espacios por "_"
+rename y/\ /_/ *.ext
+
+# Agregar una cadena de texto al final del nombre de los archivos
+rename s/.ext/texto.ext/ *.ext
+
+# Agregar una cadena de texto al principio del nombre del archivo
+rename s/^/texto/ *.ext
+
+# Reemplazar los dos primeros caracteres del nombre de los archivos
+rename s/^../texto/ *.ext
+
+# Cambiar minúsculas por mayúsculas
+rename y/a-z/A-Z/ *.ext
+
+# Sustituye digitos simples al inicio (1) por digitos dobles (01)
+rename -v 's/^([0-9])_/0\1_/' *.flac
+
+s  # sustituye la primera coincidencia
+y  # sustituye todas las coincidencias
+*  # una cadena completa (*.sh)
+^  # inicio del nombre del archivo
+$  # final del nombre del archivo
+.  # comodin de posicion (^.. indica los dos primeros caracteres del nombre del archivo)
+\  # escapa caracteres especiales (\.)

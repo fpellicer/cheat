@@ -1,0 +1,13 @@
+---
+tags: [ filesystem ]
+---
+# Comprobar errores en FAT32 y si es posible los corrige
+sudo dosfsck -a -w -v /dev/sd**
+
+  -a       repara automaticamente el filesystem
+  -l       list path names
+  -n       chequea sin cambios
+  -r       interactivo
+  -t       marca clusters no leibles como malos
+  -v       verbose
+  -w       escribe los cambios inmediatamente

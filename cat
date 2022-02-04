@@ -1,0 +1,11 @@
+---
+tags: [ formatter,processor ]
+---
+# Unir varios archivos en uno [si se daña el index ver comando mencoder]
+cat archivo1 archivo2 > archivo_salida
+
+# Copiar una iso hibrida a un usb
+sudo cat debian-7.0.0-amd64-i386-netinst.iso >/dev/sdb; sync
+
+# Combinar lineas en blanco consecutivas en una
+cat -s archivo.txt

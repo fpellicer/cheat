@@ -1,0 +1,59 @@
+---
+tags: [ copy,backup ]
+---
+# dir/ copia el contendo de dir; dir copia también el directorio.
+
+-a, --archive           Equivale a las opciones -rlptgoD
+                         Recursivo, preserva symlinks, dispositivos especiales y 
+                         archivos, tiempo de mod., grupo, propietario y permisos
+-u, --update            Solo copia archivos más nuevos en origen que en destino
+-c, --checksum          Desactiva checksum, solo mira fecha y tamaño
+-n, --dry-run           Simula la copia de archivos (usar con -v)
+    --delete            Borra archivos de destino que no están en origen
+                         Útil para mantener una copia exacta 1:1 de origen
+-p, --perms             Mantiene permisos
+-t, --times             Mantiene fecha de modificación
+-g, --group             Mantiene grupo
+-o, --owner             Mantiene propietario (solo super-user)
+-i, --itemize-changes  output a change-summary for all updates
+-r, --recursive
+-z, --compress
+    --progress
+    --partial           Permite reanudar transferencias parciales (según modtime)
+-P                      Combina --progress y --partial
+-e, --rsh=COMMAND       Shell remota a usar
+
+
+# Test de archivos a copiar sin transferir
+# (-n --dry-run), (-v --verbose; Obligatorio)
+rsync -nv source/ destination
+
+# Copiar archivos usando checksum (-c), en lugar de tiempo, para detectar
+# si un archivo ha cambiado (útil para validar backups).
+rsync -acv source/ destination
+
+# Excluir archivos/directorios a sincronizar (separar con ',').
+rsync -a --exclude=pattern_to_exclude source/ destination
+
+# Incluir archivos que coinciden con un patrón diferente.
+rsync -a --exclude=pattern --include=pattern_to_include source/ destination
+
+# Excluir imagenes en formato PNG
+rsync -av --exclude='*.png' source/ destination
+
+# Para mantener realmente 2 directorios sincronizados, es necesario
+# eliminar archivos del directorio de destino si estos son eliminados del
+# origen. Por defecto, rsync no elimina nada del directorio de destino.
+# Podemos cambiar esto con --delete. Es recomendable realizar un test.
+# previo con --dry-run
+rsync -a --delete source/ destination
+rsync -av --dry-run --update --delete --exclude=lost+found . destination/
+
+# Sincronizar un directorio local con uno remoto (Push)
+rsync -a source username@remote_host:destination_directory
+
+# Sincronizar un directorio remoto con uno local (Pull)
+rsync -a username@remote_host:source destination_directory
+
+# Sincronizar especificando un puerto ssh distinto
+rsync -a -e "ssh -p 1234" source username@remote_host:destination

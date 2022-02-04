@@ -1,0 +1,18 @@
+---
+tags: [ filesystem ]
+---
+# Fix NTFS mount error
+sudo ntfsfix /dev/sdXX
+
+# Execute without write anithing
+sudo ntfsfix --no-action /dev/sdXX
+
+# Clear the list of bad sectors
+# Useful after cloning an old disk with bad sectors to a new disk
+sudo ntfsfix --clear-bad-sectors /dev/sdXX
+
+# Clear the volume dirty flag if the volume can be fixed and mounted
+sudo ntfsfix -d /dev/sdXX
+
+# ntfs fix can only repair some NTFS partition errors. If it fails, chkdsk
+# in Windows will probably succeed

@@ -1,0 +1,18 @@
+---
+tags: [ security ]
+---
+# Test excepcionalmente rapido
+sudo unhide quick
+
+# Test rapido
+sudo unhide quick reverse
+
+# Test standar
+sudo unhide sys proc
+
+# Test completo
+sudo unhide -m -d sys procall brute reverse
+
+# Test para puertos TCP UDP
+sudo unhide-tcp
+

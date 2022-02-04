@@ -1,0 +1,16 @@
+---
+tags: [ copy ]
+---
+# Copiar archivo y crear ruta objetivo si esta no existe
+# Debe indicar el nombre del archivo de estino
+install -D "${HOME}"/.vimrc /tmp/non-exist/backup/dir/myVimrc
+
+# Copiar sin especificar el nombre del archivo destino
+install -D -t /tmp/non-exist/backup/dir/ "${HOME}"/.vimrc
+
+# Por defecto asigna permisos 755 al archivo
+# Modificar los permisos asignados al copiar
+install -D -m 644 "${HOME}"/.vimrc /tmp/non-exist/backup/dir/myVimrc
+
+# -v;  Verbose
+

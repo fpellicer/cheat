@@ -1,0 +1,28 @@
+---
+tags: [ filesystem,admin ]
+---
+# Modifica atributos en sistemas de archivos tipo EXT
+
+a; append (sólo se pueden agregar datos, no modificar los existentes)
+A: no atime (no se mantiene la fecha y hora de acceso)
+d: no dump (se ignora al momento de hacer backups con el programa dump)
+D: el directorio se sincroniza a disco en cada escritura
+i: inmutable (no se puede modificar, sólo renombrar o eliminar)
+S: el archivo se sincroniza a disco en cada escritura
+
+# Exclusivo de EXT3 y EXT4
+
+j: journaling. Los datos del archivo son escritos en el journal antes
+   de ser archivos en el archivo en sí mismo (siempre que el sistema de 
+   archivos esté montado con las opciones data=ordered o data=writeback
+   y el sistema de archivos tenga un journal.
+   Si el sistema de archivos está montado con la opción data=journal, todos
+   los datos se registran en el journal, y este atributo no tiene efecto.
+
+# Exclusivo de EXT4
+
+e: extents. Indica que el archivo está utilizando extents para mapear los
+   bloques en disco. Los extents son rangos de bloques continuos, lo cual
+   reduce la cantidad de metadatos necesarios para mantener el archivo; 
+   mejora el rendimiento para archivos grandes; reduce la fragmentación del
+   sistema de archivos.

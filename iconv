@@ -1,0 +1,16 @@
+---
+tags: [ encoder ]
+---
+-f  From code
+-t  To code
+-o  Output file
+-c  Se omiten los caracteres invalidos en la salida
+
+# Listar codificaciones
+iconv -l
+
+# Convierte de una codificacion a otra
+iconv -f orig_coding -t out_coding input_file > output_file
+
+# Convertir de ISO-8859-1 a UTF-8
+iconv -f iso-8859-1 -f utf-8 -c --verbose input_file -o output_file

@@ -1,0 +1,30 @@
+---
+tags: [ vcs ]
+---
+# Actualizar cambios de la rama 'remote'
+## (Saber si necesito actualizar (pull) mi rama local)
+git remote update && git status
+
+# Eliminar rama remota
+git push origin --delete dev
+
+# Añadir a 'Staging' todos losr archivos con cambios
+## (git add . solo añade los archivos del directorio actual)
+git add -A
+
+# (v2.23) git checkout se usa para cambiar entre ramas así como para 
+# restaurar archivos individuales a un estado previo. Esto cambia a
+git switch
+git restore
+
+# Eliminar información de ramas eliminadas en origin
+## (Las copias locales de las ramas eleminadas no se borran con esto)
+git remote prune origin
+# git fetch --prune
+
+# Deshacer el último commit local manteniendo los cambios
+# Para deshacer N cambios, HEAD~N
+git reset HEAD^
+
+# Borrar el último commit local (no mantiene los cambios)
+git reset --hard HEAD^

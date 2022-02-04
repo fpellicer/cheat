@@ -1,0 +1,5 @@
+---
+tags: [ encoder,decoder ]
+---
+# decode a string
+base64 --decode <<<string-to-decode

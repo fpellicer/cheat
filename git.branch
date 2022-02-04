@@ -1,0 +1,8 @@
+---
+tags: [ vcs ]
+---
+# Eliminar rama local
+git branch --delete <branch>
+
+# Eliminar rama remota
+git push origin --delete <branch>

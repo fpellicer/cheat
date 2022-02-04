@@ -1,0 +1,31 @@
+---
+tags: [ time ]
+---
+# Imprime la fecha en formato numerico (year-month-day)
+date +%F
+
+# Imprime la fecha en formato numerico (day-mounth-year)
+date +%d-%m-%Y 
+
+# Calcular el num. de segundos transcurridos desde una fecha concreta
+date --date "2000-01-01" +'%s'
+
+## Opciones
+
+%a   el nombre local abreviado de la semana (p. ej., dom)
+%A   el nombre local completo de la semana (p. ej., Domingo)
+%b   el nombre local abreviado del mes (p. ej., ene)
+%B   el nombre local completo del mes (p. ej. Enero)
+
+# Printout date in format suitable for affixing to file names
+date +"%Y%m%d_%H%M%S"
+
+# Convert seconds since the epoch (1970-01-01 UTC) to a date
+date --date='@2147483647'
+
+# Muestra la fecha dentro de 90 dias a partir de hoy
+date -d "today +90 days"
+
+# Imprimir la fecha actual modificando LC_TIME a Inglés
+## Útil para usar como argumento en find -newermt 'datetime'
+LC_TIME="es_EN.UTF-8" time

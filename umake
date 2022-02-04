@@ -1,0 +1,13 @@
+---
+tags: [ packaging ]
+---
+# Instalar/actualizar software
+# Tipo: android, web, ide, ...
+umake {tipo} <nombre_software>
+
+# Eliminar software
+umake -r {tipo} <nombre_software>
+
+# Mostrar versión
+umake --version {tipo} <nombre_software>
+

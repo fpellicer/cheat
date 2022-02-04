@@ -1,0 +1,26 @@
+---
+tags: [ networking ]
+---
+# Agregar torrents de forma remota.
+
+# Si se modifica el puerto, crear un alias para facilitar la conexion.
+alias transmission-remote='transmission-remote http://127.0.0.1:31909/transmission'
+
+-l      Listar torrents
+-a      Agregar un torrent
+-r      Eliminar un torrent (indicar su ID)
+-t#     Especifia un torrent (# corresponde a su ID)   
+-g#,#   Para iniciar # archivos de un mismo torrent (IDs separados por ,)
+--stop  Detiene la descarga
+--star  Inicia la descarga
+
+--remove-and-delete  Elimina el torrent y los datos descargados
+
+# Listar torrents en un servidor remoto con autentificacion.
+transmission-remote homeserver:port -auth=user:pass -l
+
+# Ver velocidad subida/bajada (cada segundo).
+while true; do clear; transmission-remote -t# -i | grep Speed; sleep 1; done
+
+# Ver lista de peers conectados
+transmission-remote -t# -pi

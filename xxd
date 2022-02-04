@@ -1,0 +1,31 @@
+---
+tags: [ processor ]
+---
+# hexadecimal+ASCII
+xxd file_name
+
+# Revertir archivo hexadecimal en binario ( ej. hex de imagen a imagen )
+xxd -r <input> <output>
+
+# Datos de ejemplo:
+# 00000010: 1ed6 a08f 3501 ac1c 6204 7465 7874 5d8a  ....5...b.text].
+# 00000020: 9fd3 4865 6c6c 6f20 4379 7068 6572 210a  ..Hello Cypher!.
+# 00000030: 6372 790a 8902 3304 0001 0a00 1d16 2104  cry...3.......!.
+
+# Nota:
+# Las filas son de 16 octetos por defecto.
+# El primer valor numerico corresponde a la fila (1, 2, ..)
+# El segundo valor corresponde a la posición en la fila (0..9a..f)
+
+# Mostrar sólo el mensaje 'Hello Cypher!'
+xxd -s 0x22 -l 13 -c 13 text
+
+# Modificar la primera letra 'e' del mensaje por una 'a'
+echo -s "00000022: 4861" | xxd -r - text
+
+# Mostrar las 2 primeras filas (32 octetos)
+xxd -l 32 file
+
+# Mostrar las 2 últimas filas (32 octetos)
+xxd -s -32 file
+

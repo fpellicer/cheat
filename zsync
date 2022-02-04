@@ -1,0 +1,16 @@
+---
+tags: [ backup ]
+---
+# Actualizar image.iso (desde su directorio).
+# Si no disponemos de una, descarga la iso completa.
+zsync http://web.com/path/to/file/image.iso.zsync
+
+# Especificar la ruta de la imagen a actualizar.
+zsync -i image.iso http://web.com/path/to/file/image.iso.zsync
+
+# Crear un archivo para compartir (crea el archivo *.zsync).
+zsyncmake -z custom.tar
+# Los archivos *.tar y *.zsync deben estar en el mismo directorio.
+# Si el archivo a compartir se encuentra comprimido (*.tar.gz), 
+# descomprimir, crear el *.zsync y compartir *.tar.gz y *.zsync.
+

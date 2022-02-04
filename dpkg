@@ -1,0 +1,32 @@
+---
+tags: [ packaging ]
+---
+# Listar los paquetes con los kernels antiguos
+dpkg --get-selections 'linux-image*' | grep -w install
+dpkg --get-selections 'linux-headers*' | grep -w install
+
+-s|--status <package> ...        Display package status details. 
+-p|--print-avail <package> ...   Display available version details.
+-I|--info <package> ...          Display dependences.
+-c|--contents <package> ...      Display *.deb contents.
+
+# Versiones GTK instaladas
+dpkg -k libgtk2.0-0 libgtk-3-0
+
+# Saber si un paquete depende de Electron
+dpkg --contents <package> | grep electron
+
+# List dependencies of installed package
+dpkg -s <package> | grep ^Depends:
+
+# Install multiple .deb packages
+dpkg -R ~/Packages-dir/
+
+# Info from non installed .deb packages (-I, long|-W, short)
+dpkg-deb -I <deb>
+
+# List installed packages with a short description
+dpkg-query -l
+
+# Lista paquetes instalados
+dpkg -l | awk '$1 == "ii" {print $2}'

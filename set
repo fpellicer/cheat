@@ -1,0 +1,8 @@
+---
+tags: [ bash,shell ]
+---
+# Establecer las opciones con nombre largo
+set -o opcion[ opcion]
+
+# Trata las variables si definir como un error al sustituir
+set -u	# nounset

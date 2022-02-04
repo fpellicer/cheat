@@ -1,0 +1,11 @@
+---
+tags: [ networking ]
+---
+# Listar dispositivos por su MDNS
+avahi-browse _miio._udp
+
+# Listar todos los servicios
+avahi-browse --all
+
+# Resolver todos los servicios encontrados
+avahi-browse --all --resolve

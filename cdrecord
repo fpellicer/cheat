@@ -1,0 +1,24 @@
+---
+tags: [ multimedia ]
+---
+# cdrecord (wodim)
+# La unidad CD/DVD no debe estar montada
+
+# Borrar CD-RW
+cdrecord -v gracetime=2 dev=/dev/cdrw -eject blank=fast-force
+
+# Borrado completo (más lento)
+cdrecord -v gracetime=2 dev=/dev/cdrw -eject blank=all-force
+
+# Borrar DVD-RW
+cdrecord -v gracetime=2 dev=/dev/dvdrw -eject blank=fast-force
+
+# Ver el bus de la grabadora (SCSI o SCSI-emulator)
+cdrecord -scanbus
+# Ver el bus de la grabadora (ATAPI)
+cdrecord -dev=/dev/sr0 -scanbus
+
+cdrecord dev=/dev/sr0 --devices
+
+# Grabar imagen ISO (necesario saber el bus)
+cdrecord -v speed=16 dev=0,0,0 -data /dir/imagen.iso

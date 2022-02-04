@@ -1,0 +1,12 @@
+---
+tags: [ compression ]
+---
+# Comprimir todos los archivos del directorio
+zip salida.zip *
+
+# Comprimir un directorio y sus archivos
+zip salida.zip directorio/*
+
+# Excluir un archivo/directorio
+zip salida.zip * -x excluido-1 excluido-2
+

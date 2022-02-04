@@ -1,0 +1,14 @@
+---
+tags: [ vcs ]
+---
+# Actualizar rama remota
+git push origin dev
+
+# Eliminar rama remota
+git push origin --delete dev
+
+# Actualizar todas ls tags en origin
+git push origin --tags
+
+# Actualizar una tag en origin
+git push origin v1.5

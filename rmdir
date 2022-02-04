@@ -1,0 +1,2 @@
+# Borrar 'Error directorio no vacio'
+rmdir --ignore-fail-on-non-empty <dir>

@@ -1,0 +1,24 @@
+---
+tags: [ compression ]
+---
+# Extraer contenido
+unrar e archivo.rar
+
+# Extraer contenido con la ruta completa
+unrar x archivo.rar
+
+# Extraer contenido en un dir. concreto (debe existir)
+unrar x archivo.rar dir/destino
+
+# Listar el contenido del .rar
+unrar l archivo.rar
+
+# Comprobar la integridad del archivo
+unrar t archivo.rar
+
+# Extraer contenido con password (sin espacio entre -p y PASSWRD)
+unrar e[x] -pPASSWRD archivo.rar
+
+# Extraer contenido deshabilitando los mensajes de salida
+unrar -inul x archivo.rar
+

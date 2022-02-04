@@ -1,0 +1,28 @@
+---
+tags: [ copy ]
+---
+# Copiar un archivo de tu maquina local al servidor remoto:
+scp -P 2222 foo.txt usuario@<ip|nombre_maquina>:/remote/dir
+
+# Copiar un archivo del servidor remoto a la maquina local:
+scp -P 2222 usuario@<ip|nombre_maquina>:/remote/dir/foo.txt /local/dir
+
+# Incrementar velocidad de copiado (aes 128 por defecto)
+scp -c blowfish user@server:/home/user/file .
+
+# Incrementar seguridad
+scp -c 3des user@server:/home/user/file .
+
+# Limitar ancho de banda (en Kbits/s)
+scp -l50 user@server:/path/to/file /path/to/folder
+
+# Comprimir para la transferencia
+scp -C user@server:/path/to/file /path/to/folder
+
+# Especificar puerto (22 por defecto)
+scp -P 2222 user@server:/home/jane/file /home/jane/
+
+-P <puerto>  # port number
+-C           # compression
+-r           # recursive
+-v           # verbose

@@ -1,0 +1,5 @@
+---
+tags: [ multimedia,metadata ]
+---
+# Editar título y nombre
+mkvpropedit --edit info --set "title=<titulo>" --edit track:1 --set "name=<name> file.mkv

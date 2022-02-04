@@ -1,0 +1,13 @@
+---
+tags: [ vcs ]
+---
+# Cambiar a otro 'commit'
+git checkout <id>
+## Se pueden hacer modificaciones y commits en este estado sin que tengan efecto en master.
+## Para guardar estas modificaciones, ejecutar el siguiente comando.
+
+# Crear una nueva rama y cambiar a esta
+git checkout -b <new-branch-name>
+
+# Volver a 'master'
+git checkout master

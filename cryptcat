@@ -1,0 +1,8 @@
+---
+tags: [ networking ]
+---
+# Abrir una conexion a la escucha
+cryptcat -l -p <puerto_escucha>
+
+# Conectar con un host remoto
+cryptcat <ip_host> <puerto>

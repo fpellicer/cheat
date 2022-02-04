@@ -1,0 +1,29 @@
+---
+tags: [ filesystem,info ]
+---
+# Lista archivos y directorios y ordena de mayor a menor
+du -ha | sort -hr | head -10
+
+# Lista primeros directorios y ordena de menor a mayor (en bytes)
+du --max-depth=1 | sort -n
+
+# Muestra los directorios que mas ocupan (omite subdir.)
+du -Sh 2> /dev/null | sort -hr | head -10
+
+du -h | sort -hr | head -10     # Muestra los directorios/subdirectorios que más ocupan
+su -sh * | sort -hr | head -10  # [-s *] equivale a --max-depth=1  # [-s] equivale a --max-depth=0
+
+# Ver archivos de 0mb
+du -a | grep ^0
+
+# Lista directorios max. 2 niveles y minimo 1G en dir. home
+du -h -d2 -t1G ~
+
+## Opciones
+
+-a, --all             Suma todos los archivos, no solo directorios
+-c, --total           Produce un gran total
+-s, --summarize       Muestra un total para cada argumento, similar a --max-depth=0
+-S, --separate-dirs   No incluye subdirectorios
+-d, --max-depth=N     Nivel maximo de profundidad
+-t, --threshold=SIZE  Tamaño minimo si es positivo, o tamaño maximo si es negativo (-SIZE)

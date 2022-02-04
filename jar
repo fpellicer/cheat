@@ -1,0 +1,3 @@
+# print a list of all the classes defined in a java jar
+jar tvf path/to/some.jar | awk '{print $NF}'
+

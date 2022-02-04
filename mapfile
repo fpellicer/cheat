@@ -1,0 +1,18 @@
+---
+tags: [ bash ]
+---
+# Si se omite NOMBRE, la variable MAPFILE almacenará la salida.
+
+# Crear un array con la salida de un comando
+mapfile NOMBRE < <(comando)
+
+# Forma correcta para la salida del comando find
+mapfile -d $'\0' arr < <(find /path/to -print0)
+
+# Eliminar final de línea (\t)
+mapfile -t < <(comando)
+
+# Nota:
+# `ls | mapfile` no es válido debido a que cada comando en una tubería es
+# ejecutado en una subshell, por lo cual la variable MAPFILE no sería
+# accesible desde nuestro entorno.

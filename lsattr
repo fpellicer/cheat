@@ -1,0 +1,26 @@
+---
+tags: [ filesystem ]
+---
+# Lista atributos de archivo EXT2, EXT3 y EXT4
+
+a: sólo append.
+A: no atime.
+c: utiliza compresión.
+C: no utiliza copy on write
+d: no dump.
+D: el directorio se sincroniza a disco en cada escritura.
+e: formato extent.
+E: archivo encriptado.
+i: inmutable.
+I: directorio indexado.
+j: journaling.
+N: inline data.
+P: jerarquía de proyecto.
+s: borrado seguro (zerofree).
+S: el archivo se sincroniza a disco en cada escritura.
+t: no tail-merging
+T: tope de jerarquía de directorio.
+u: inborrable.
+
+## Todos estos atributos pueden ser modificados con chattr excepto
+## E, I y N, los cuales son de sólo-lectura.

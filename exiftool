@@ -1,0 +1,22 @@
+---
+tags: [ metadata,info ]
+---
+# Sintaxis para modificar tags: exiftool -exif:tag="valor" ruta
+# Tags:
+Copyright    title
+gpslatitude
+
+# Listar grupos de Tags
+-listw,  Writable                     -listd,  Deletable Groups
+-listf,  Supported File Extensions    -listr,  Recognized File Extensions
+-listwf, Writable File Extensions
+
+# Eliminar todos los metadatos
+exiftool -all= ruta/     # Para todo el directorio
+exiftool -all= ruta.jpg  # Para un único archivo
+
+# Visualizar datos GPS
+exiftool -gpslatitude -gpslongitude imangen.jpg
+
+# Modificar el autor
+exiftool -artist="nombre" 

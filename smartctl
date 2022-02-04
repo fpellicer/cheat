@@ -1,0 +1,30 @@
+---
+tags: [ filesystem,info ]
+---
+# (como root)
+smartctl -i /dev/sda  Muestra inf. del dispositivo
+smartctl -a /dev/sda  Muestra toda la info. S.M.A.R.T
+smartctl -x /dev/sda  Muestra toda la info. del dispositivo
+smartctl -H /dev/sda  Muestra el estado de salud del dispositivo
+
+# Lista ajustes del dispositivo
+smartctl --get=[all,security..] /dev/sda
+
+# Lista capacidades [ATA]
+smartctl --capabilities /dev/sda
+
+# Lista atributos
+smartctl --attributes /dev/sda
+    5 Reallocated_Sector_Ct  [5] (mayor puede ser daño fisico en forma de sectores defectuosos)
+  191 G-Sense-Error-rate     [0] (mayor puede ser a causa de golpes o caidas)
+  197 Current_Pending_Sector [5] (mayor puede ser daño fisico en forma de sectores defectuosos)
+
+# Tests
+Sintaxis: smartctl --test=[offline,short,log]
+
+# offline-test [ATA]
+El resultado solo es visible en la lista de atributos.
+Si encuentra errores seran visibles con la opcion [--log=error] (NO en dispositivos SCSI)
+
+# sort-test
+Muestra los errores en [--log=selftest]

@@ -1,0 +1,24 @@
+# The syntax of pv command as follows:
+
+pv file
+pv [options] file
+pv file > filename.out
+pv [options] | command > filename.out
+command1 | pv | command2
+
+# Without options, pv runs with default -p -t -e -r -b options.
+
+# Make a zip file from your /var/log/syslog
+pv /var/log/syslog | zip > syslog.zip
+
+# Monitor the progress of creating a backup file using tar utility.
+tar -czf - ./Downloads/ | (pv -p --timer --rate --bytes > backup.tgz)
+
+# Using pv with a dialog progress bar
+tar -czf - ./Documents/ | (pv -n > backup.tgz) 2>&1 | dialog --gauge "Progress" 10 70
+
+# Use pv command recursively
+for i in *; do pv "$i" > /output/dir/"$i"; done
+
+# See progress of both pipes
+pv -cN rawlogfile org_access.log | gzip | pv -cN gziplogfile > access.log.gz

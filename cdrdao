@@ -1,0 +1,8 @@
+---
+tags: [ multimedia ]
+---
+# Crear una imagen de un audio cd
+cdrdao read-cd -v 2 --device 1,0,0 --read-raw --datafile imagen.bin imagen.toc
+
+# Grabar la imagen a un cd
+cdrdao write -v 2 --device 1,0,0 --speed 4 --buffers 64 imagen.toc

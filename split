@@ -1,0 +1,23 @@
+---
+tags: [ formatter,processor ]
+---
+
+split [OPTION]... [INPUT [PREFIX]]
+
+-d, --numeric-suffixes |Default 2
+-n, --number=CHUNKS    |Split in N parts
+-b, --bytes=SIZE       |Size in K,M,G (powers of 1024) or KB,MB,GB (powers of 1000)
+
+# Sin input o cuando este es '-', leera la entrada estandard
+
+# Dividir fichero en partes de X size (K,M,G) y agrega sufijo numerico (-d)
+split --bytes=10M -d suffix output_file
+
+# To split a large text file into smaller files of 1000 lines each:
+split file.txt -l 1000
+
+# To split a large binary file into smaller files of 10M each:
+split file.txt -b 10M
+
+## To consolidate split files into a single file:
+cat x* > file.txt

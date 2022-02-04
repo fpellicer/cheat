@@ -1,0 +1,7 @@
+# To send a desktop notification via dbus:
+notify-send -i 'icon-file/name' -a 'application_name' 'summary' 'body of message'
+
+# Ejemplo
+notify-send "Subiendo a Box" "Subiendo %F a tu cuenta de Box..." && cp -r %F ~/Box/ && notify-send "Listo" "Los archivos ya han sido subidos a tu cuenta de Box"
+
+# The -i and -a flags can be omitted if unneeded.

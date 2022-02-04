@@ -1,0 +1,17 @@
+---
+tags: [ processor ]
+---
+# Cortar la salida de la primera columna delimitada por ':'
+cut -d: -f1 /ruta/archivo
+
+# Retornar del carácter 3 al 7 de una cadena
+cut -c 3-7
+
+# Obtener el numero del % de uso de disco sin mostrar el simbolo '%'
+df | grep /$ | cut -b 52-54 | cut -d% -f1
+
+# To cut out the third field of text or stdoutput that is delimited by a #:
+cut -d# -f3
+
+# Imprimir la columna 3, y desde la 6 hasta el final
+ls -l | cut -d ' ' -f 3,6-

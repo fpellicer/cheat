@@ -1,0 +1,5 @@
+# Capturas de pantalla
+import image.png
+
+# Información de una imagen
+identify image.png

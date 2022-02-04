@@ -1,0 +1,11 @@
+---
+tags: [ vcs ]
+---
+# Todos los registros en forma abreviada de forma gráfica
+git log --oneline --graph --all
+
+# Mostrar los cambios introducidos en cada commit
+git -p
+
+# No mostrar 'merge commits'
+git log --no-merges

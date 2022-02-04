@@ -1,0 +1,5 @@
+---
+tags: [ admin ]
+---
+# Muestra pid
+pstree -p

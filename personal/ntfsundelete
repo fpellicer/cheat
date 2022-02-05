@@ -1,0 +1,25 @@
+---
+tags: [ recovery ]
+---
+# ntfsundelete is part of the ntfs-3g package
+
+# Look for deleted files on /dev/hda1
+ntfsundelete /dev/hda1
+
+# Look for deleted documents on /dev/hda1
+ntfsundelete /dev/hda1 -s -m '*.doc'
+
+# Look for deleted files between 5000 and 6000000 bytes, with at least 90% of the data recoverable, on /dev/hda1
+ntfsundelete /dev/hda1 -S 5k-6m -p 90
+
+# Look for deleted files altered in the last two days
+ntfsundelete /dev/hda1 -t 2d
+
+# Undelete inodes 2, 5 and 100 to 131 of device /dev/sda1
+ntfsundelete /dev/sda1 -u -i 2,5,100-131
+
+# Undelete inode number 3689, call the file 'work.doc', set it to recovered size and put it in the user's home directory
+ntfsundelete /dev/hda1 -u -T -i 3689 -o work.doc -d ~
+
+# Save MFT Records 3689 to 3690 to a file 'debug'
+ntfsundelete /dev/hda1 -c 3689-3690 -o debug

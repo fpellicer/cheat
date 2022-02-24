@@ -42,8 +42,14 @@ less file1 file2
 # Cambiar entre los archivos (anterior/siguiente)
 :n; :p
 
+# Mostar líneas más largas que el ancho de la pantalla
+-S
+
 
 ## Opciones
+
+# Mostrar líneas más largas que el ancho de la pantalla (-S)
+less --chop-long-lines
 
 # Interpreta los caracteres de escape de color ASCII en formato RAW.
 less -R

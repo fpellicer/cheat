@@ -3,3 +3,9 @@ tags: [ filesystem ]
 ---
 # Listar particiones montadas/desmontadas
 lsblk -fm   # Más info con 'sudo'
+
+# Listar todos los dispositivos
+lsblk -f /dev/sd?
+
+# Listar dispositivos sdb y sdc con información del sistema de ficheros
+lsblk -f /dev/sd{b,c}

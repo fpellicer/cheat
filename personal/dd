@@ -32,4 +32,4 @@ dd if=/dev/urandom of=/tmp/test.txt count=512 bs=2
 dd if=src of=dest status=progress
 
 # Bootable usb
-sudo dd if=file.iso of=/dev/sdc status=progress oflag=sync
+sudo dd if=file.iso of=/dev/sdc status=progress bs=4M oflag=sync

@@ -24,3 +24,4 @@ mogrify -verbose folder-ubuntu.png -modulate "110,110,184" folder-ubuntu.png
 -flop       Da la vuelta horizontalmente (efecto espejo)
 -border 5x5 Añade borde
 -frame 9x9  Añade un marco
+-strip      Elimina metadatos

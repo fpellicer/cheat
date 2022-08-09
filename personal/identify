@@ -6,3 +6,6 @@ identify -verbose imagen.png
 
 # Ancho de imagen
 identify -format %w imagen.png
+
+# Listar metadatos exif
+identify -verbose | grep exif

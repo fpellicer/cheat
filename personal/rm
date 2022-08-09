@@ -1,4 +1,5 @@
 # Eliminar excepto X archivos/directorios
+shopt -s extglob
 rm !(*.foo|*.bar|*.baz)
 
 # Remove files and subdirs

@@ -16,6 +16,9 @@ convert -size 310x70 xc:transparent -font currier -pointsize 72 -drawn "text 25,
 # Convertir jpg a png
 convert imagen.jpg imagen.png
 
+# Eliminar metatadatos de una imagen
+convert -strip imagen.jpg imagen2.jpg
+
 # Convertir jpg a pdf
 # Modificar la siguiente línea así en el archivo /etc/ImageMagick-6/policy.xml 
 # <policy domain="coder" rights="read|write" pattern="PDF" />
@@ -50,6 +53,8 @@ convert -resize 500 -delay 15 -loop 0 *.jpg animation.gif
 # Create thumbnails from batch images
 convert -thumbnail '500x500>' *.jpg thumb.jpg
 
-# Covert to webp (loseless=true|false)
+# Covert to WEBP (loseless=true|false)
 convert -define webp webp:loseless=true image.png image.webp
 
+# Convert to JPG resizing in half all HEIC images (rename to a-1.jpg, ..)
+convert *.heic -resize 50% -quality 70 a.jpg

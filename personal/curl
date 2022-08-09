@@ -14,7 +14,7 @@ curl -O URLOfFirstFile -O URLOfSecondFile
 curl http://example.com/pic[1-24].jpg
 
 # Download a file and pass HTTP Authentication
-curl -u username:password URL 
+curl -u username:password URL
 
 # Download a file with a Proxy
 curl -x proxysever.server.com:PORT http://addressiwantto.access
@@ -44,10 +44,18 @@ curl http://ifconfig.me/all/json
 curl --limit-rate 1000B -O http://path.to.the/file
 
 # Get your global IP
-curl httpbin.org/ip 
+curl httpbin.org/ip
 
 # Get url's redirect target
 curl -w "%{url_effective}\n" -s -S -L -I $URL -o /dev/null
 
 # Display URLs in a redirect chain
 curl -v -L http:example.com 2>&1 | egrep "^> (Host:|GET)"
+
+# Send email
+curl --ssl-reqd \
+  --url 'smtps://smpt.gmail.com:465' \
+  --user 'sender@gmail.com:sender_password' \
+  --mail-from 'sender@gmail.com' \
+  --mail-rcpt 'receiver@gmail.com' \
+  --upload-file message.txt

@@ -9,8 +9,10 @@ ls -d */*/  # Lista tambien el subdirectorio
 # Listar solo los directorios ocultos
 ls -d .*/
 
-# Listar archivos ocultos
-ls -a | grep ^[.]      ## ls -a | grep ^\\.
+# Listar archivos ocultos (múltiples opciones)
+ls -ld .*
+ls -a | grep ^[.]
+ls -a | grep ^\\.
 
 # Listar directorios y subdirectorios
 ls -FR |grep /$

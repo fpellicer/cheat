@@ -1,0 +1,42 @@
+---
+syntax: bash
+tags: [ python, environments ]
+---
+# List all avaliable versions of python 3.6, 3.7 and 3.8
+pyenv install --list | grep " 3\.[678]"
+
+# Install the specified version of Python:
+pyenv install <version>
+
+# List installed versions
+pyenv versions
+
+# Update to the latest version
+pyenv update
+
+# Uninstall a particular Python version
+pyenv uninstall <version>
+
+# Set the specified version of Python as system's default:
+pyenv global <version>
+
+# Set the specified version of Python to be used in the current directory:
+pyenv local <version>
+
+# Create a virtual environment based on the specified Python version (requires `pyenv-virtualenv` plugin):
+pyenv virtualenv <version> <virtualenv_name>
+
+# Activate a virtual environment
+pyenv local <virtualenv_name>
+
+# Verify Python version activated
+pyenv which python
+
+# Uninstall the specified version of Python:
+pyenv uninstall <version>
+
+# List the versions installed:
+pyenv versions
+
+# Check the version of python currently in use:
+pyenv version

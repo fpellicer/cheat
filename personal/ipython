@@ -9,3 +9,12 @@ tags: [ python ]
 
 # Execute previous input in cell number
 %rerun <cell_number>
+
+# Open an empty editor with a temporary file
+%edit
+
+# Open editor with the same data as the last time you used %edit
+%edit -p
+
+# Yout can always retrieve it by using its optput number
+%edit _NN

@@ -22,6 +22,10 @@ gpg --verify MD5SUMS.gpg MD5SUMS   # Muestra el key ID FBB75451
 gpg --recv-keys 0xFBB75451         # Importar la clave - Añadir 0x al ID
 gpg --verify MD5SUMS.gpg MD5SUMS   # Verifica la firma
 
+---------------------------------------------------------------------------------------
+# Archivos de configuración
+gpg.conf
+dirmngr.conf
 ----------------------------------------------------------------------------------------
 
 # Create a key

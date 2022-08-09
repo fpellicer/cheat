@@ -115,3 +115,6 @@ find . -path ./dir4 -prune -o -exec basename {} \;
 # _ toma el valor de {} el cual se para como primer argumento
 find . -name '*.png' -exec sh -c 'cwebp -q 75 "$1" -o "${1%.png}.webp"' _ {} \;
 
+# Listar archivos mostrando fecha en formato date(1) y su nombre
+find . -type f -name '*pdf' -printf "%C+ %p\n"
+

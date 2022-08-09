@@ -1,0 +1,8 @@
+---
+tags: [ image ]
+---
+# Convert JPG/PNG to WebP
+cwebp -q [quality 0-100] image.jpg -o image.webp
+
+# Convert WebP to JPG/PNG
+dwebp image.webp -o image.jpg

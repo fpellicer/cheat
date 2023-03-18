@@ -7,10 +7,10 @@ pip3 install --upgrade --user <package>
 python3 -m pip install --upgrade --user <package>
 
 # pip list
---outdated  # Paquetes desactualizados
---uptodate  # Paquetes actualizados
---user      # Instalados en 'user-site'
---local     # En 'venv' con acceso global, lista solo paquetes locales
+--outdated      # Paquetes desactualizados
+--uptodate      # Paquetes actualizados
+--user          # Instalados en 'user-site'
+--local         # En 'venv' con acceso global, lista solo paquetes locales
 --not-required  # Paquetes sin dependencias de otros instalados
 
 # Listar paquetes desactualizados
@@ -22,3 +22,6 @@ pip3 list --outdated --user --not-required
 
 # Comprobar dependencias después de la instalación
 pip3 check
+
+# Actualizar paquete a una versión especifica
+pip3 install --upgrade <package>==<version>

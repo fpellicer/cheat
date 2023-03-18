@@ -5,7 +5,7 @@ tags: [ python ]
 python3 -i file.py
 
 # Lanzar código arbitrario como una cadena en la shell
-python3 -c 'print('Hello, word')"
+python3 -c 'print("Hello, word")'
 python3 -c 'import sys; print(sys.path)'
 
 # Ejecutar archivo.py dentro del interprete Python
@@ -17,3 +17,12 @@ python3 -m http.server <puerto>
 
 # Servidor sólo accesible para el host local
 python3 -m http.server <puerto> --bind 127.0.0.1
+
+# Parsear archivos JSON
+python3 -m json.tool --sort-keys < data.json
+
+# Comprimir y empaquetar archivos
+#  gzip sólo comprime archivos individuales
+ python3 -m gzip --fast words*
+#  Crea un único archivo (zipfile o tarfile)
+ python3 -m zipfile -c archive.zip file1.txt file2.txt

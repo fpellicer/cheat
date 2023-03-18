@@ -15,6 +15,8 @@ gpg nombre-archivo-cifrado
 
 # Cifrado simetrico (-c) son salida ascii (-a) y con algoritmo de cifrado aes (--cipher-alg)
 gpg -ca --cipher-algo aes256 -o texto_salida.aes texto_entrada
+# Opciones largas
+gpg --symmetric --armor --verbose texto_entrada
 
 # Verificar autenticidad de MD5SUM con MD5SUM.gpg
 gpg --list-packets file.(sig|gpg)  # Muestra info (keyid, ..)
@@ -29,8 +31,11 @@ dirmngr.conf
 ----------------------------------------------------------------------------------------
 
 # Create a key
- gpg --gen-key
- gpg --full-gen-key
+  gpg --gen-key
+  gpg --full-gen-key
+
+# Set different home directory
+  gpg --homedir
 
 # Show keys
   To list a summary of all keys with subkey fingerprints
@@ -42,6 +47,9 @@ dirmngr.conf
 
   To show the fingerprint for a key
     gpg --fingerprint KEY_ID
+
+  To show the keygrip (protocol independent way to identify a public key)
+    gpg -K --with-keygrip
 
 # Search for keys
   gpg --search-keys 'user@emailaddress.com'

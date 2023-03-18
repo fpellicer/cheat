@@ -11,6 +11,9 @@ server@ip_remota  # Sistema remoto al que conectar
 :5901             # Conectamos al puerto 5901 del sistema remoto
 -N                # ssh no ejecuta comandos remotos
 
+# To list all the public keys
+ssh-add -L
+
 # To ssh via pem file (which normally needs 0600 permissions):
 ssh -i /path/to/file.pem user@example.com
 

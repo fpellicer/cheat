@@ -28,7 +28,7 @@ find -maxdepth 1 -type d -exec chmod 750 '{}' \;
 
 # Cambiar permisos sólo de los directorios con permisos de administrador
 # -print0 y -0 establecen el separador de campo a null
-sudo find . -type d -print0 | sudo xargs -0 chmod 755 
+sudo find . -type d -print0 | sudo xargs -0 chmod 755
 
 # Buscar los 10 archivos mas grandes en el directorio y subdirectorios
 find . -printf '%s %p\n' | sort -nr | head -10
@@ -37,7 +37,7 @@ find . -printf '%s %p\n' | sort -nr | head -10
 find . -type f -name "*.*" | awk -F. '{print $NF}' | sort -u
 find . -type f | grep -o -E '\.[^\.]+$' | sort -u
 find . -type f -name "*.*" | grep -o -E "\.[^\.]+$" | grep -o -E "[[:alpha:]]{3,6}" | awk '{print tolower($0)}' | sort -u
- 
+
 # To find files by octal permission:
 find . -type f -perm 777
 
@@ -48,7 +48,7 @@ find . -xdev \( -perm -4000 \) -type f -print0 | xargs -0 ls -l
 find ./path/ -name '*.txt' -exec rm '{}' \;
 
 # To find files with extension '.txt' and look for a string into them:
-find ./path/ -name '*.txt' | xargs grep 'string'
+find ./path/ -name '*.txt' -print0 | xargs -0 grep 'string'
 
 # To find files with size bigger than 5 Mb and sort them by size:
 find ./ -size +5M -type f -print0 | xargs -0 ls -Ssh
@@ -73,10 +73,14 @@ find . -maxdepth 2 -name build -type d
 find . -type f \( -iname "*${var// /-}*" -o -iname "*${var// /_}*" \)
 
 # Buscar nombre usando expresiones regulares
-# Los modos implementados son emacs (default), posix-awk, posix-basic, posix-egrep extended
+# Los modos implementados son emacs (default), posix-awk, posix-basic, posix-egrep posix-extended
+# Más info sobre estos modos: https://www.gnu.org/software/findutils/manual/html_node/find_html/Regular-Expressions.html
 -regextype <type>
- 
+
 -regex <regex> || -iregex <regex>
+
+# Buscar archivos .mkv i .avi (coincide con ./title.mkv o ./title.avi)
+find . -type f -regextype posix-extended -regex '^\.\/.+\.(mkv|avi)$'
 
 # Copia archivos en multiples directorios de forma simultanea
 find /dir1/ /dir2/ /dir/3/ -maxdepth 0 -exec cp archivo {} \;
@@ -112,7 +116,7 @@ find . type d \( ! -name dir4 \) -print
 find . -path ./dir4 -prune -o -exec basename {} \;
 
 # Convertir todas las imagenes PNG a WEBP
-# _ toma el valor de {} el cual se para como primer argumento
+# _ toma el valor de {} el cual se pasa como primer argumento
 find . -name '*.png' -exec sh -c 'cwebp -q 75 "$1" -o "${1%.png}.webp"' _ {} \;
 
 # Listar archivos mostrando fecha en formato date(1) y su nombre

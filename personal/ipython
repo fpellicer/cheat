@@ -1,14 +1,43 @@
 ---
 tags: [ python ]
 ---
-# Run Python file
-%run file.py
+# Get a list of all available magic commands
+%lsmagic
+
+# Show more info
+%magic
+
+# Show info about a magic command
+magic_command?
+
+# Call magics without percent signs (0 by default)
+%automagic 1
+
+# Show history and their input line number
+%history -n
+
+# Print variables in your IPython Shell
+%who
+%who str  # We can also list by type
+
+# Control verbosity of Exceptions (Verbose by default)
+%xmode (Plain, Context, Verbose, Minimal)
+
+# Manage your Environment variables
+%env
+%env var=value  # Set an environment variable
+
+# Run Python file and print the execution time
+%run -t file.py
 
 # Load Python file content
 %load file.py
 
 # Execute previous input in cell number
 %rerun <cell_number>
+
+# Evaluate the execution time of a program
+%timeit function()
 
 # Open an empty editor with a temporary file
 %edit

@@ -37,6 +37,9 @@ curl -C - -o partial_file.zip http://example.com/file.zip
 # Fetch only the HTTP headers from a response
 curl -I http://example.com
 
+# Fetch only HTTP Status Code
+curl -so /dev/null -Iw "%{http_code}" http://example.com
+
 # Fetch your external IP and network info as JSON
 curl http://ifconfig.me/all/json
 

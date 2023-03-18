@@ -1,6 +1,8 @@
 ---
 tags: [ formatter,processor ]
 ---
+# More info: https://stedolan.github.io/jq/manual/
+
 # To pretty print the json:
 jq "." < filename.json
 
@@ -19,4 +21,4 @@ jq '.[:3]'
 jq '.[-2:]'
 
 # Add two filters separated by comma
-jq '.foo .bar[]'
+jq '.foo, .bar[]'

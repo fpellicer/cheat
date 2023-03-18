@@ -10,6 +10,9 @@ sudo snap find <palabra_a_buscar>
 # Instalar un snap
 sudo snap install <paquete>
 
+# Instalar una versión concreta de un snap (ej. Channel: esr/beta)
+sudo snap install firefox --channel esr --beta
+
 # Actualizar un snap
 sudo snap refresh <paquete>
 
@@ -22,3 +25,6 @@ sudo snap revert <paquete>
 # Borrar snap
 sudo snap remove <paquete>
 
+# Actualizar snap-store
+snap-store --quit
+sudo snap refresh snap-store

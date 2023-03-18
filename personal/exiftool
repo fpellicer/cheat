@@ -14,6 +14,8 @@ gpslatitude
 # Eliminar todos los metadatos
 exiftool -all= ruta/     # Para todo el directorio
 exiftool -all= ruta.jpg  # Para un único archivo
+# Inseguro en PDFs (Usar mat2). Estos datos pueden recuperarse con
+exiftool -pdf-update:all= archivo.pdf
 
 # Visualizar datos GPS
 exiftool -gpslatitude -gpslongitude imangen.jpg

@@ -1,6 +1,10 @@
 ---
 tags: [ filesystem,info ]
 ---
+
+# Listar unidades compatibles
+smartctl --scan
+
 # (como root)
 smartctl -i /dev/sda  Muestra inf. del dispositivo
 smartctl -a /dev/sda  Muestra toda la info. S.M.A.R.T
@@ -28,3 +32,5 @@ Si encuentra errores seran visibles con la opcion [--log=error] (NO en dispositi
 
 # sort-test
 Muestra los errores en [--log=selftest]
+
+# Para dispositivos nvme instalar nvme-cli

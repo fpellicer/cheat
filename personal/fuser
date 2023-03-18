@@ -6,3 +6,6 @@ fuser -n tcp 80
 
 # Listar procesos que haciendo uso de un filesystem
 fuser -mv /path
+
+# Terminar un proceso en base a su número de puerto y tipo
+fuser -k 8080/udp

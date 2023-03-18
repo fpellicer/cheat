@@ -1,0 +1,14 @@
+# To tee stdout to <outfile>:
+ls | tee outfile
+
+# To tee stdout and append to <outfile>:
+ls | tee -a outfile
+
+# Write output to multiple files
+ls | outfile1 outfile2 outfile3
+
+# Send output of one command to another
+ls | tee outfile | wc -l
+
+# Hide output of file
+ls | tee outfile > /dev/null

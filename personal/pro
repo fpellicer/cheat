@@ -1,0 +1,17 @@
+# To attach a machine
+sudo pro attach <TOKEN>
+
+# Identify the source repository of your installed packages
+pro security-status
+
+# See the list of packages covered with esm-apps
+pro security-status --esm-apps
+
+# Current status of all Ubuntu Pro Services
+pro status
+
+# Enable services
+sudo pro enable <service>
+
+# Disable services
+sudo pro disable <service>

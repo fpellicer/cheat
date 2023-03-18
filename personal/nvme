@@ -1,0 +1,9 @@
+---
+tags: [ filesystem,info ]
+---
+
+# Identificar dispositivos compatibles
+nvme list
+
+# Mostrar información
+nvme smart-log /dev/nvme0n1

@@ -1,0 +1,11 @@
+---
+tags: [ metadata ]
+---
+# Ver metadatos detectables sin eliminarlos
+mat2 --show archivo.jpg
+
+# Eliminar metadatos de varios archivos (crea copias)
+mat2 image.jpg file.pdf
+
+# Eliminar metadatos sin crear una copia del archivo
+mat --inplace file.pdf

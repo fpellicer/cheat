@@ -22,6 +22,7 @@
 | Alt+b  | Editar con opción Backup              [on/off]
 | Alt+i  | Autoindentar                          [on/off]
 | Alt+m  | Soporte para ratón (selección)        [on/off]
+| Alt+n  | Activa número de líneas               [on/off]
 | Alt+h  | Activa tecla 'inicio inteligente'     [on/off]
 | Alt+y  | Coloreado de sitaxis                  [on/off]
 

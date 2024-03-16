@@ -1,0 +1,6 @@
+---
+tags: [ filesystem ]
+---
+# Change volume name of a fat32 filesystem
+sudo fatlabel /dev/sdXN NEW_LABEL
+

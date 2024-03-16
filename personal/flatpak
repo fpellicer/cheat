@@ -1,0 +1,48 @@
+---
+tags: [ packaging ]
+---
+# Install application
+flatpak install <identifier>
+flatpak install <remote> <identifier>
+
+# Uninstall application
+flatpack uninstall <identifier>
+
+# Install application per-user (system-wide by default)
+flatpak install --user <identifier>
+
+# List remotes
+flatpak remotes
+
+# Add a remote
+flatpak remote-add -if-not-exist flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Remove a romote
+flatpak remote-delete flathub
+
+# Search
+flathub search gimp
+
+# Running applications
+flatpak run org.gimp.GIMP
+
+# Updating
+flatpak update
+
+# List installed applications and runtimes
+flatpak list
+
+# List just applications
+flatpak list --app
+
+# Remove runtimes and extensions that are nut used by installed apps
+flatpak uninstall --unused
+
+# To fix inconsistencies with your local installation
+flatpak repair
+
+# Reset all portal permissions for an app
+flatpak premission-reset org.gimp.GIMP
+
+# Show Flatpak changes logs
+flatpak history

@@ -1,0 +1,12 @@
+---
+tags: [ python ]
+---
+
+# Medir el tiempo de ejecución de un pequeño fragmento de código
+%timeit <code>
+
+# Indicar el número de veces de ejecuciones (default 1000_000)
+%timeit -n 100_000 <code>
+
+# Indicar el número de veces que se repite el comando (default 5)
+%timeit -r 3 <code>

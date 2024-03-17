@@ -24,3 +24,5 @@ tune2fs -m 2 /dev/sdxx
 # Moficar las opciones de montaje (ver man ext4).
 tune2fs -O <opciones> /dev/sdxx
 
+# Modificar la etiqueta del volumen
+tune2fs -L <label> /dev/sdx

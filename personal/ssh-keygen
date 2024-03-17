@@ -23,13 +23,16 @@ ssh-keygen -t rsa -b 4096 -C "$USER@$HOSTNAME" -P passphrase
 ssh-keygen -l -f ~/.ssh/ssh_host_key.pub
 
 # Search host in known_hosts
-ssh-keygen -F <ip/host> ~/.ssh/known_hosts
+ssh-keygen -F <ip/host> -f ~/.ssh/known_hosts
 
 # Show fingerprints from known_hosts
 ssh-keygen -l -f ~/.ssh/known_hosts
 
+# Show fingerprints in MD5 format (06:6e:bc:...)
+ssh-keygen -l -E md5 -f id_rsa
+
 # Remove host from known_hosts
-ssh-keygen -R <ip/host> ~/.ssh/known_hosts
+ssh-keygen -R <ip/host> -f ~/.ssh/known_hosts
 
 # To prevent new hashed entries
 # In /etc/ssh/ssh_config comment the line 'HashKnownHosts yes'

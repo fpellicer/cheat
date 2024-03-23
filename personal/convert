@@ -58,3 +58,7 @@ convert -define webp webp:loseless=true image.png image.webp
 
 # Convert to JPG resizing in half all HEIC images (rename to a-1.jpg, ..)
 convert *.heic -resize 50% -quality 70 a.jpg
+
+## Solución error: cache resources exhausted
+<policy domain="resource" name="disk" value="1GiB"/>
+<policy domain="resource" name="disk" value="8GiB"/>

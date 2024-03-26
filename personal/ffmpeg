@@ -36,6 +36,18 @@ ffmpeg -i input -vf fps=1 coding%004d.jpg
 # Extract only one frame
 ffmpeg -i input -ss 00:01:07.000 -vframes 1 oneframe.jpg
 
+# Extract a gif from a video
+ffmpeg -i video.mp4 -vf scale=300:-1 -t 10 -r 10 output.mp4
+
+# Extract audio
+ffmpeg -i video.mp4 -vn output.mp3
+
+# Increase audio volume
+ffmpeg -i video.mp4 -af 'volume=0.5' output.mp4
+
+# Create a video with static image and audio
+ffmpeg -loop 1 -y -i imagen.png -i audio.mp3 -shortest output.mp4
+
 # Inserting watermark (upper-left and lower-right corner)
 ffmpeg -i input -i logo.png -filter_complex "overlay" -c:a copy output.mp4
 ffmpeg -i ... -filter_complex "overlay=W-w-10:H-h-10" -c:a copy output.mp4
@@ -44,6 +56,13 @@ ffmpeg -i ... -filter_complex "[1:v] scale=150:-1 [ol], [0:v] [ol] overlay" -c:a
 
 # Video/audio rescaling keeping aspect ratio
 ffmpeg -i input.avi -vf scale=320:-1 output.avi
+
+# Rotate video
+ffmpeg -i video.mp4 -vf transpose=clock output.mp4
+
+# Flip video horizontal or vertical
+ffmpeg -i video.mp4 -vf hflip output.mp4
+ffmpeg -i video.mp4 -vf vflip output.mp4
 
 # Use ffmpeg in loops
 # Just add </dev/null to prevent ffmpeg from reading its standard input
